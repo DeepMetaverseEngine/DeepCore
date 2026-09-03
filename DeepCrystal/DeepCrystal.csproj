@@ -1,0 +1,104 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <Version>1.2.28</Version>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Crypto\**" />
+    <Compile Remove="FuckPomeloServer.IOCP\**" />
+    <Compile Remove="ORM.Utils\**" />
+    <Compile Remove="HTTP\**" />
+    <Compile Remove="IOCP\**" />
+    <Compile Remove="OS\**" />
+    <Compile Remove="Persistence.File\**" />
+    <Compile Remove="Persistence\**" />
+    <Compile Remove="RPC.Invoker\**" />
+    <Compile Remove="RPC.Remote\**" />
+    <Compile Remove="RPC.Standalone\**" />
+    <Compile Remove="Schedule\**" />
+    <Compile Remove="Threading\**" />
+    <EmbeddedResource Remove="Crypto\**" />
+    <EmbeddedResource Remove="FuckPomeloServer.IOCP\**" />
+    <EmbeddedResource Remove="ORM.Utils\**" />
+    <EmbeddedResource Remove="HTTP\**" />
+    <EmbeddedResource Remove="IOCP\**" />
+    <EmbeddedResource Remove="OS\**" />
+    <EmbeddedResource Remove="Persistence.File\**" />
+    <EmbeddedResource Remove="Persistence\**" />
+    <EmbeddedResource Remove="RPC.Invoker\**" />
+    <EmbeddedResource Remove="RPC.Remote\**" />
+    <EmbeddedResource Remove="RPC.Standalone\**" />
+    <EmbeddedResource Remove="Schedule\**" />
+    <EmbeddedResource Remove="Threading\**" />
+    <None Remove="Crypto\**" />
+    <None Remove="FuckPomeloServer.IOCP\**" />
+    <None Remove="ORM.Utils\**" />
+    <None Remove="HTTP\**" />
+    <None Remove="IOCP\**" />
+    <None Remove="OS\**" />
+    <None Remove="Persistence.File\**" />
+    <None Remove="Persistence\**" />
+    <None Remove="RPC.Invoker\**" />
+    <None Remove="RPC.Remote\**" />
+    <None Remove="RPC.Standalone\**" />
+    <None Remove="Schedule\**" />
+    <None Remove="Threading\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ORM\MappingObject.Memory.cs" />
+    <Compile Remove="ORM\MappingObject.Simple.cs" />
+    <Compile Remove="ORM\ORM.Adapters.cs" />
+    <Compile Remove="ORM\ORM.Object.cs" />
+    <Compile Remove="ORM\ORMDump.cs" />
+    <Compile Remove="ServerUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="RPC\CornJob.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Crypto\Certificate.cs" />
+    <Compile Include="Crypto\CertificateGen.cs" />
+    <Compile Include="Crypto\REAHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="10.0.5" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="System.CodeDom" Version="10.0.5" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.7.0" />
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.7.0" />
+    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="10.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepCore.Net\DeepCore.Net.csproj" />
+  </ItemGroup>
+</Project>

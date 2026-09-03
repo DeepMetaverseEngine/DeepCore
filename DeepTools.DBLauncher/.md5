@@ -1,0 +1,21 @@
+cadf9607e4df58850362fba184617df6 : \DBLauncher.cs
+3537e4c190c1d0194ef0f2511203caa6 : \DeepTools.DBLauncher.csproj
+4a1e7feba99bd4e0fbaf0f7e6fa5af9c : \Program.cs
+a27c6dd8c2dac63e1ad870f9503c9f07 : \mysql\.gitignore
+bfa9825c1835d904cd8b38f7f689ec49 : \mysql\init.sql
+771f35e9644f96d36d8df86205a47bd3 : \mysql\LICENSE
+ebd8c3d50b1bcfe4c23a8fb129f8eb6d : \mysql\my.ini
+28a1baf5ea7b9fdb67ce940371ba31b4 : \mysql\mysql.bat
+c8442f061145cf59fb33dfe27926609c : \mysql\README
+38cab724adeb466e8b7a57914b269308 : \mysql\bin\mysqldumpslow.pl
+0946aa1644f61a517558fa8183f6bc69 : \mysql\bin\mysqld_multi.pl
+178105f1db34666fbdbee4bddcae4c18 : \mysql\bin\mysql_config.pl
+6ebd12958da51b842b1509c1bc027d19 : \redis\.gitignore
+8e25448d62cc6da7719a0c5a8402d3a8 : \redis\Redis on Windows Release Notes.docx
+0ce1a4f1366218cdc986e31617c7085b : \redis\Redis on Windows.docx
+0c166c38bc0a3763a20a5ea34b814cfe : \redis\redis.bat
+a8ef829ac55bd46b9aa4ad0b578c375a : \redis\redis.windows-service.conf
+99d42630c7f28841a28e9842d5824e0b : \redis\redis.windows.conf
+3acc2ade550688487d12446dd057bdb1 : \redis\redis2.bat
+9deac4861ecbe3e2b10c7fdfa1d7e2b7 : \redis\redis2.conf
+3c6b1bb398761894439d8f178f9adfe7 : \redis\Windows Service Documentation.docx

@@ -1,0 +1,7 @@
+﻿<filter>
+ <match>
+   <regex>_PL$</regex>
+   <key>admin_PL</key>
+   <value>r</value>
+ </match>
+</filter>

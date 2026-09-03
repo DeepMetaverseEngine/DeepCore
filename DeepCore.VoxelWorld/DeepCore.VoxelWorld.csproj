@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Version>1.2.14</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore.Voxel\DeepCore.Voxel.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+</Project>

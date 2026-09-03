@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>vox</AssemblyName>
+    <Version>1.2.14</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.DeepTools.Voxel</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SharpZipLib" Version="1.4.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.GUI\DeepCore.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore.SharpZipLib\DeepCore.SharpZipLib.csproj" />
+    <ProjectReference Include="..\DeepCore.VoxelWorld\DeepCore.VoxelWorld.csproj" />
+    <ProjectReference Include="..\DeepCore.Voxel\DeepCore.Voxel.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+</Project>

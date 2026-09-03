@@ -1,0 +1,151 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <Version>1.2.21</Version>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>DeepMetaGame.Unity.Preview</RootNamespace>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="OnGUI\**" />
+    <Compile Remove="PreviewBattle\**" />
+    <Compile Remove="RTG\**" />
+    <Compile Remove="View\**" />
+    <EmbeddedResource Remove="OnGUI\**" />
+    <EmbeddedResource Remove="PreviewBattle\**" />
+    <EmbeddedResource Remove="RTG\**" />
+    <EmbeddedResource Remove="View\**" />
+    <None Remove="OnGUI\**" />
+    <None Remove="PreviewBattle\**" />
+    <None Remove="RTG\**" />
+    <None Remove="View\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Preview\PreviewObject.Spell.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="assets\download.png" />
+    <None Remove="assets\down_squared.png" />
+    <None Remove="assets\generic_sorting_2.png" />
+    <None Remove="assets\grid.png" />
+    <None Remove="assets\icon_app_145.png" />
+    <None Remove="assets\icon_app_180.png" />
+    <None Remove="assets\icon_app_181.png" />
+    <None Remove="assets\icon_app_182.png" />
+    <None Remove="assets\icon_app_184.png" />
+    <None Remove="assets\icon_app_28.png" />
+    <None Remove="assets\icon_app_31.png" />
+    <None Remove="assets\icon_architecture_18.png" />
+    <None Remove="assets\icon_arrow_67.png" />
+    <None Remove="assets\icon_arrow_84.png" />
+    <None Remove="assets\icon_avatar_32.png" />
+    <None Remove="assets\icon_common_15.png" />
+    <None Remove="assets\icon_common_18.png" />
+    <None Remove="assets\icon_common_19.png" />
+    <None Remove="assets\icon_common_37.png" />
+    <None Remove="assets\icon_common_93.png" />
+    <None Remove="assets\icon_common_98.png" />
+    <None Remove="assets\icon_controller_69.png" />
+    <None Remove="assets\icon_controller_70.png" />
+    <None Remove="assets\icon_game_195.png" />
+    <None Remove="assets\icon_game_27.png" />
+    <None Remove="assets\icon_game_61.png" />
+    <None Remove="assets\icon_game_64.png" />
+    <None Remove="assets\icon_game_94.png" />
+    <None Remove="assets\icon_layer.png" />
+    <None Remove="assets\icon_media_67.png" />
+    <None Remove="assets\icon_nature_27.png" />
+    <None Remove="assets\icon_nature_29.png" />
+    <None Remove="assets\icon_res.png" />
+    <None Remove="assets\icon_res_1.png" />
+    <None Remove="assets\icon_res_2.png" />
+    <None Remove="assets\icon_res_4.png" />
+    <None Remove="assets\icon_res_6.png" />
+    <None Remove="assets\icon_scene.png" />
+    <None Remove="assets\icon_simpleshape_23.png" />
+    <None Remove="assets\icon_simpleshape_24.png" />
+    <None Remove="assets\icon_sport_14.png" />
+    <None Remove="assets\icon_sport_15.png" />
+    <None Remove="assets\icon_store_173.png" />
+    <None Remove="assets\icon_trigger.png" />
+    <None Remove="assets\round_swap_vert_white_24dp.png" />
+    <None Remove="assets\up_squared.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="assets\download.png" />
+    <EmbeddedResource Include="assets\down_squared.png" />
+    <EmbeddedResource Include="assets\generic_sorting_2.png" />
+    <EmbeddedResource Include="assets\grid.png" />
+    <EmbeddedResource Include="assets\icon_app_145.png" />
+    <EmbeddedResource Include="assets\icon_app_180.png" />
+    <EmbeddedResource Include="assets\icon_app_181.png" />
+    <EmbeddedResource Include="assets\icon_app_182.png" />
+    <EmbeddedResource Include="assets\icon_app_184.png" />
+    <EmbeddedResource Include="assets\icon_app_28.png" />
+    <EmbeddedResource Include="assets\icon_app_31.png" />
+    <EmbeddedResource Include="assets\icon_architecture_18.png" />
+    <EmbeddedResource Include="assets\icon_arrow_67.png" />
+    <EmbeddedResource Include="assets\icon_arrow_84.png" />
+    <EmbeddedResource Include="assets\icon_avatar_32.png" />
+    <EmbeddedResource Include="assets\icon_common_15.png" />
+    <EmbeddedResource Include="assets\icon_common_18.png" />
+    <EmbeddedResource Include="assets\icon_common_19.png" />
+    <EmbeddedResource Include="assets\icon_common_37.png" />
+    <EmbeddedResource Include="assets\icon_common_93.png" />
+    <EmbeddedResource Include="assets\icon_common_98.png" />
+    <EmbeddedResource Include="assets\icon_controller_69.png" />
+    <EmbeddedResource Include="assets\icon_controller_70.png" />
+    <EmbeddedResource Include="assets\icon_game_195.png" />
+    <EmbeddedResource Include="assets\icon_game_27.png" />
+    <EmbeddedResource Include="assets\icon_game_61.png" />
+    <EmbeddedResource Include="assets\icon_game_64.png" />
+    <EmbeddedResource Include="assets\icon_game_94.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="assets\icon_layer.png" />
+    <EmbeddedResource Include="assets\icon_media_67.png" />
+    <EmbeddedResource Include="assets\icon_nature_27.png" />
+    <EmbeddedResource Include="assets\icon_nature_29.png" />
+    <EmbeddedResource Include="assets\icon_res.png" />
+    <EmbeddedResource Include="assets\icon_res_1.png" />
+    <EmbeddedResource Include="assets\icon_res_2.png" />
+    <EmbeddedResource Include="assets\icon_res_4.png" />
+    <EmbeddedResource Include="assets\icon_res_6.png" />
+    <EmbeddedResource Include="assets\icon_scene.png" />
+    <EmbeddedResource Include="assets\icon_simpleshape_23.png" />
+    <EmbeddedResource Include="assets\icon_simpleshape_24.png" />
+    <EmbeddedResource Include="assets\icon_sport_14.png" />
+    <EmbeddedResource Include="assets\icon_sport_15.png" />
+    <EmbeddedResource Include="assets\icon_store_173.png" />
+    <EmbeddedResource Include="assets\icon_trigger.png" />
+    <EmbeddedResource Include="assets\round_swap_vert_white_24dp.png" />
+    <EmbeddedResource Include="assets\up_squared.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="UniTask" Version="2.5.10" />
+    <PackageReference Include="UnityTechnologies.UnityEngine" Version="2020.2.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore.GUI.Display\DeepCore.GUI.Display.csproj" />
+    <ProjectReference Include="..\DeepCore.GUI\DeepCore.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore.Net\DeepCore.Net.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity.GUI\DeepCore.Unity.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity3D.Win32\DeepCore.Unity3D.Win32.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity3D\DeepCore.Unity3D.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity\DeepCore.Unity.csproj" />
+    <ProjectReference Include="..\DeepCore.Voxel\DeepCore.Voxel.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Data\DeepMetaGame.Data.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Display\DeepMetaGame.Display.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Host\DeepMetaGame.Host.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Slave\DeepMetaGame.Slave.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Unity\DeepMetaGame.Unity.csproj" />
+  </ItemGroup>
+</Project>

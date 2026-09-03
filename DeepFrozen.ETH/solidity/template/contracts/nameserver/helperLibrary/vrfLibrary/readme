@@ -1,0 +1,5 @@
+EllipticCurve.sol and FastEcMul is cloned from elliptic-curve-solidity.
+VRF is cloned from vrf-solidity.
+Both are upgraded to "pragma" to solidity 0.8.x.
+
+The vrf is compelled to vrf-0.5, https://datatracker.ietf.org/doc/pdf/draft-irtf-cfrg-vrf-05

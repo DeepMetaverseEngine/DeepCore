@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Version>1.2.25</Version>
+    <RootNamespace>DeepCore.Game3D.Host</RootNamespace>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Instance\InstanceSpell\InstanceSpell.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Event\DeepCore.Event.csproj" />
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Data\DeepMetaGame.Data.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Slave\DeepMetaGame.Slave.csproj" />
+  </ItemGroup>
+</Project>

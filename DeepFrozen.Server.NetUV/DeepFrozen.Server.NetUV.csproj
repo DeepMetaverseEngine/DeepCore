@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version>1.2.27</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="PomeloClient\**" />
+    <Compile Remove="NameServer\**" />
+    <Compile Remove="NetServer\**" />
+    <Compile Remove="NetUV.Core\Properties\**" />
+    <Compile Remove="ServiceNode\**" />
+    <Compile Remove="SharpUV\**" />
+    <Compile Remove="VRPC\**" />
+    <EmbeddedResource Remove="PomeloClient\**" />
+    <EmbeddedResource Remove="NameServer\**" />
+    <EmbeddedResource Remove="NetServer\**" />
+    <EmbeddedResource Remove="NetUV.Core\Properties\**" />
+    <EmbeddedResource Remove="ServiceNode\**" />
+    <EmbeddedResource Remove="SharpUV\**" />
+    <EmbeddedResource Remove="VRPC\**" />
+    <None Remove="PomeloClient\**" />
+    <None Remove="NameServer\**" />
+    <None Remove="NetServer\**" />
+    <None Remove="NetUV.Core\Properties\**" />
+    <None Remove="ServiceNode\**" />
+    <None Remove="SharpUV\**" />
+    <None Remove="VRPC\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="netuv.pub" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PomeloClient\UVClientTCP.cs" />
+    <Compile Include="PomeloClient\UVClientFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Net\DeepCore.Net.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepCrystal\DeepCrystal.csproj" />
+    <ProjectReference Include="..\DeepFrozen.RPC\DeepFrozen.RPC.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libuv.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libuv.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Libuv" Version="1.10.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.5" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+    <PackageReference Include="System.Net.NameResolution" Version="4.3.0" />
+    <PackageReference Include="System.Diagnostics.Contracts" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
+    <PackageReference Include="System.Diagnostics.StackTrace" Version="4.3.0" />
+  </ItemGroup>
+</Project>

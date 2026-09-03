@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <UnityVersion>2020.2.0f1</UnityVersion>
+    <LangVersion>latest</LangVersion>
+    <Version>1.2.17</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Impl\**" />
+    <Compile Remove="UGUIEditor\**" />
+    <Compile Remove="Voxel\Scripts\**" />
+    <EmbeddedResource Remove="Impl\**" />
+    <EmbeddedResource Remove="UGUIEditor\**" />
+    <EmbeddedResource Remove="Voxel\Scripts\**" />
+    <None Remove="Impl\**" />
+    <None Remove="UGUIEditor\**" />
+    <None Remove="Voxel\Scripts\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Game\Editor\ABBuilder\BuildConfigEditor.cs" />
+    <Compile Remove="Game\Editor\ABBuilder\BuildRule.cs" />
+    <Compile Remove="Game\Editor\ABBuilder\BuildRuleEditor.cs" />
+    <Compile Remove="Voxel\Editor\VoxelBaker.cs" />
+    <Compile Remove="Voxel\Editor\VoxelBakerConfig.cs" />
+    <Compile Remove="Voxel\Editor\VoxelEditor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="UnityTechnologies.UnityEditor" Version="2020.2.2.1" />
+    <PackageReference Include="UnityTechnologies.UnityEngine" Version="2020.2.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.GUI\DeepCore.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity3D\DeepCore.Unity3D.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity\DeepCore.Unity.csproj" />
+    <ProjectReference Include="..\DeepCore.Voxel\DeepCore.Voxel.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+</Project>

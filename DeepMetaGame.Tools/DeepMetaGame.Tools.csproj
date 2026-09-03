@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Version>1.2.22</Version>
+		<Deterministic>true</Deterministic>
+		<NoWarn>$(NoWarn);WFO1000</NoWarn>
+		<Configurations>Debug;Release;Source</Configurations>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>DeepMeta.$(AssemblyName)</PackageId>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="card_affect.xml" />
+		<None Remove="card_csproj.xml" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="card_affects.xml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="card_affect.xml">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="card_csproj.xml">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+		<PackageReference Include="CsvHelper" Version="33.1.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\DeepCore.Console\DeepCore.Console.csproj" />
+		<ProjectReference Include="..\DeepCore.Event\DeepCore.Event.csproj" />
+		<ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+		<ProjectReference Include="..\DeepCore.GUI.Display\DeepCore.GUI.Display.csproj" />
+		<ProjectReference Include="..\DeepCore.GUI.FairyGUI\DeepCore.GUI.FairyGUI.csproj" />
+		<ProjectReference Include="..\DeepCore.GUI\DeepCore.GUI.csproj" />
+		<ProjectReference Include="..\DeepCore.Net\DeepCore.Net.csproj" />
+		<ProjectReference Include="..\DeepCore.Template.NewtonJson\DeepCore.Template.NewtonJson.csproj" />
+		<ProjectReference Include="..\DeepCore.Voxel\DeepCore.Voxel.csproj" />
+		<ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+		<ProjectReference Include="..\DeepTools.CodeGen\DeepTools.CodeGen.csproj" />
+		<ProjectReference Include="..\DeepTools.XLS2Lang\DeepTools.XLS2Lang.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.Data\DeepMetaGame.Data.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.Display\DeepMetaGame.Display.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.Host\DeepMetaGame.Host.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.Slave\DeepMetaGame.Slave.csproj" />
+	</ItemGroup>
+
+
+</Project>

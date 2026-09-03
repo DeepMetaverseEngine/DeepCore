@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+  <!-- 全局变量（IService.GlobalConfig） -->
+  <GlobalConfig>
+    <RealmID>110</RealmID>
+    <RedisORMFactory>localhost,allowAdmin=true,syncTimeout=3000,responseTimeout=3000,connectTimeout=3000</RedisORMFactory>
+    <MySQLFactory>server=192.168.1.173;user=lok;database=gmt;port=3306;password=lok123456;SslMode=none;Convert Zero Datetime=True</MySQLFactory>
+    <RedisDababase>4</RedisDababase>
+  </GlobalConfig>
+  <!-- NameServer节点 -->
+  <NameServer>
+    <!-- ICE相关参数 -->
+    <RpcConfig>
+      <LocalEndPoint>127.0.0.1:17000</LocalEndPoint>
+      <NetworkTimeoutMS>15000</NetworkTimeoutMS>
+      <!-- 编解码器类名 -->
+      <RpcCodec>TLServer.Serializer</RpcCodec>
+    </RpcConfig>
+  </NameServer>
+  <!-- 所有Service节点 -->
+  <ServiceNodes>
+    <!-- 申明Service节点 -->
+    <GateNode>
+      <!-- ICE相关参数 -->
+      <RpcConfig>
+        <LocalNodeName>GateNode</LocalNodeName>
+        <LocalEndPoint>127.0.0.1:17010</LocalEndPoint>
+        <NameServerEndPoint>127.0.0.1:17000</NameServerEndPoint>
+        <RequestTickTimeMS>5000</RequestTickTimeMS>
+        <NetworkTimeoutMS>30000</NetworkTimeoutMS>
+        <DefaultTaskExecuteTimeout>60000</DefaultTaskExecuteTimeout>
+        <!-- 编解码器类名 -->
+        <RpcCodec>TLServer.Serializer</RpcCodec>
+        <AcceptTypeMappings>
+          <!-- 该节点内允许的服务(名字和类名) -->
+          <GateServer>DeepMMO.Server.Gate.GateServer</GateServer>
+        </AcceptTypeMappings>
+      </RpcConfig>
+      <!-- 静态启动服务 -->
+      <StartService>
+        <!-- 静态启动服务实体 -->
+        <GateServer>
+          <ServiceName>GateServer</ServiceName>
+          <ServiceType>GateServer</ServiceType>
+          <!-- 该服务参数（ServiceStartInfo.Config） -->
+          <Config>
+            <Name>GateServer</Name>
+            <Port>19001</Port>
+            <KeepAlive>true</KeepAlive>
+            <KeepAliveInterval>30000</KeepAliveInterval>
+            <RecvBufferSize>16384</RecvBufferSize>
+            <SendBufferSize>16384</SendBufferSize>
+            <MaxConnections>3000</MaxConnections>
+            <NetCodec>TLClient.Serializer</NetCodec>
+          </Config>
+        </GateServer>
+      </StartService>
+    </GateNode>
+  </ServiceNodes>
+</doc>

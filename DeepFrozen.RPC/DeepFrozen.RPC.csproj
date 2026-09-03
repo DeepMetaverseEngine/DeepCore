@@ -1,0 +1,93 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <LangVersion>default</LangVersion>
+    <Version>1.2.26</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Ben.Demystifier\**" />
+    <Compile Remove="RPC.Impl.Standalone\**" />
+    <Compile Remove="RPC.Remote.GridImpl\**" />
+    <Compile Remove="RPC.Standalone\**" />
+    <Compile Remove="Schedule\**" />
+    <Compile Remove="RPC.Remote\NameServer\**" />
+    <Compile Remove="Rpc\**" />
+    <EmbeddedResource Remove="Ben.Demystifier\**" />
+    <EmbeddedResource Remove="RPC.Impl.Standalone\**" />
+    <EmbeddedResource Remove="RPC.Remote.GridImpl\**" />
+    <EmbeddedResource Remove="RPC.Standalone\**" />
+    <EmbeddedResource Remove="Schedule\**" />
+    <EmbeddedResource Remove="RPC.Remote\NameServer\**" />
+    <EmbeddedResource Remove="Rpc\**" />
+    <None Remove="Ben.Demystifier\**" />
+    <None Remove="RPC.Impl.Standalone\**" />
+    <None Remove="RPC.Remote.GridImpl\**" />
+    <None Remove="RPC.Standalone\**" />
+    <None Remove="Schedule\**" />
+    <None Remove="RPC.Remote\NameServer\**" />
+    <None Remove="Rpc\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="RPC.Invoker\RpcTimer.cs" />
+    <Compile Remove="RPC.Remote.InAppImpl\RpcMessage.cs" />
+    <Compile Remove="RPC.Remote\ServiceNode\RpcRemoteProxy.cs" />
+    <Compile Remove="RPC.Remote\ServiceNode\RpcServiceBox.Provider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="RPC.Launcher\LauncherSample.xml" />
+    <None Remove="RPC.Launcher\LauncherTemplateSingleService.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RPC.Remote\NameServer\IRpcNameServerAdapter.cs" />
+    <Compile Include="RPC.Remote\NameServer\RpcNameServer.DB.cs" />
+    <Compile Include="Schedule\SimpleJob.cs" />
+    <Compile Include="RPC.Remote\NameServer\RpcNameServer.cs" />
+    <Compile Include="Schedule\TimerGroup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RPC.Launcher\LauncherSample.xml" />
+    <EmbeddedResource Include="RPC.Launcher\LauncherTemplateSingleService.xml" />
+    <EmbeddedResource Include="Schedule\quartz_database\schema_20_to_22_upgrade.sql" />
+    <EmbeddedResource Include="Schedule\quartz_database\sqlserver_schema_10_to_20_upgrade.sql" />
+    <EmbeddedResource Include="Schedule\quartz_database\tables\tables_firebird.sql" />
+    <EmbeddedResource Include="Schedule\quartz_database\tables\tables_mysql_innodb.sql" />
+    <EmbeddedResource Include="Schedule\quartz_database\tables\tables_oracle.sql" />
+    <EmbeddedResource Include="Schedule\quartz_database\tables\tables_postgres.sql" />
+    <EmbeddedResource Include="Schedule\quartz_database\tables\tables_sqlite.sql" />
+    <EmbeddedResource Include="Schedule\quartz_database\tables\tables_sqlServer.sql" />
+    <EmbeddedResource Include="Schedule\quartz_database\tables\tables_sqlServerCe.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Ben.Demystifier" Version="0.4.1" />
+    <PackageReference Include="Microsoft.Linq.Dynamic" Version="1.0.3" />
+    <PackageReference Include="Quartz" Version="3.17.0" />
+    <PackageReference Include="Quartz.Serialization.Json" Version="3.17.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepCrystal\DeepCrystal.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.Metadata">
+      <Version>10.0.5</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>

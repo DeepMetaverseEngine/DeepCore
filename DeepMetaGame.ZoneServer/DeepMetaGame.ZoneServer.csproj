@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net9.0;;net10.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.2.14</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+    <StartupObject>DeepMetaGame.ZoneServer.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Message\**" />
+    <EmbeddedResource Remove="Message\**" />
+    <None Remove="Message\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Client\BattleClient.cs" />
+    <Compile Remove="Client\BattleClientDirect.cs" />
+    <Compile Remove="Client\BattleClientProxy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepCrystal\DeepCrystal.csproj" />
+    <ProjectReference Include="..\DeepFrozen.Server.NetUV\DeepFrozen.Server.NetUV.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Data\DeepMetaGame.Data.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Host\DeepMetaGame.Host.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Slave\DeepMetaGame.Slave.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.ZoneClient\DeepMetaGame.ZoneClient.csproj" />
+  </ItemGroup>
+</Project>

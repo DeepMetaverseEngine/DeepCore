@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>xlslang</AssemblyName>
+    <StartupObject>DeepTools.LanguageXLS.Program</StartupObject>
+    <Version>1.2.15</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.DeepTools.XLS2Lang</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="lua\**" />
+    <Compile Remove="xls\**" />
+    <EmbeddedResource Remove="lua\**" />
+    <EmbeddedResource Remove="xls\**" />
+    <None Remove="lua\**" />
+    <None Remove="xls\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="xls-csharp-class.xml" />
+    <None Remove="xls-json-code.xml" />
+    <None Remove="xls-json-meta.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="xls-csharp-class.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xls-json-code.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xls-lua-code.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xls-lang-code.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xls-json-meta.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xls-lua-meta.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NPOI" Version="2.7.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepTools.CodeGen\DeepTools.CodeGen.csproj" />
+  </ItemGroup>
+</Project>

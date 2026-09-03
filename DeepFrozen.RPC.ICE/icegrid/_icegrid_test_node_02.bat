@@ -1,0 +1,1 @@
+icegridnode      --Ice.Config=.\_icegrid_test_node_02.properties

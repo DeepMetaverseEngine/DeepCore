@@ -1,0 +1,9 @@
+cc66a100104dda1e75252d5fecedb8d9 : \DeepMetaGame.ZoneClient.csproj
+6f7f39f74140773843be4093ba6bce3d : \Client\BattleClient.cs
+f4e503c26cddc6c36d49d37bb0992eb7 : \Client\BattleClientDirect.cs
+7f77f636136406aef5f9ef512f0a290e : \Client\BattleClientProxy.cs
+addccc82caebaf09b24b52be8bef3730 : \Client\NetTestClient.cs
+1786d00c906257c15952216412e5ab44 : \Message\DataB2R.cs
+ff87f9f679ee8fccf9cde3e2e1787d43 : \Message\DataC2B.cs
+ebabb30b1719bdfce77ad3915e87ba66 : \Message\DataR2B.cs
+c4c12f17394cc7fdac3c1ee952b0b5e5 : \Message\DataTest.cs

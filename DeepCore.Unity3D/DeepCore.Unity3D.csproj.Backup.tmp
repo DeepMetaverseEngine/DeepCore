@@ -1,0 +1,115 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version>1.2.21</Version>
+    <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Core\AB\**" />
+    <Compile Remove="Core\CommandLine\**" />
+    <Compile Remove="Game\Code\**" />
+    <Compile Remove="Game\IOBattle\**" />
+    <Compile Remove="Game\PostProcessing\**" />
+    <Compile Remove="Game\Resources\**" />
+    <Compile Remove="Game\Scripts\**" />
+    <Compile Remove="Game\ThirdParts\**" />
+    <Compile Remove="GizmosUtils\**" />
+    <Compile Remove="Impl\**" />
+    <Compile Remove="lib\**" />
+    <Compile Remove="native\**" />
+    <Compile Remove="Resource\**" />
+    <Compile Remove="Core\**" />
+    <Compile Remove="Src\**" />
+    <EmbeddedResource Remove="Core\AB\**" />
+    <EmbeddedResource Remove="Core\CommandLine\**" />
+    <EmbeddedResource Remove="Game\Code\**" />
+    <EmbeddedResource Remove="Game\IOBattle\**" />
+    <EmbeddedResource Remove="Game\PostProcessing\**" />
+    <EmbeddedResource Remove="Game\Resources\**" />
+    <EmbeddedResource Remove="Game\Scripts\**" />
+    <EmbeddedResource Remove="Game\ThirdParts\**" />
+    <EmbeddedResource Remove="GizmosUtils\**" />
+    <EmbeddedResource Remove="Impl\**" />
+    <EmbeddedResource Remove="lib\**" />
+    <EmbeddedResource Remove="native\**" />
+    <EmbeddedResource Remove="Resource\**" />
+    <EmbeddedResource Remove="Core\**" />
+    <EmbeddedResource Remove="Src\**" />
+    <None Remove="Core\AB\**" />
+    <None Remove="Core\CommandLine\**" />
+    <None Remove="Game\Code\**" />
+    <None Remove="Game\IOBattle\**" />
+    <None Remove="Game\PostProcessing\**" />
+    <None Remove="Game\Resources\**" />
+    <None Remove="Game\Scripts\**" />
+    <None Remove="Game\ThirdParts\**" />
+    <None Remove="GizmosUtils\**" />
+    <None Remove="Impl\**" />
+    <None Remove="lib\**" />
+    <None Remove="native\**" />
+    <None Remove="Resource\**" />
+    <None Remove="Core\**" />
+    <None Remove="Src\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Helper\Debugger.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\M3Z\M3Z.cs" />
+    <Compile Include="Core\UnityDelayInvoke.cs" />
+    <Compile Include="Core\UnityHelper.cs" />
+    <Compile Include="Core\UnityHelper.Extend.cs" />
+    <Compile Include="Core\UnityMainThreadDispatcher.cs" />
+    <Compile Include="Core\UnityTotalComponent.cs" />
+    <Compile Include="Game\Code\Utility\ForceUtil.cs" />
+    <Compile Include="Game\Code\Utility\ICleanable.cs" />
+    <Compile Include="Game\Code\Utility\LookAtCamera.cs" />
+    <Compile Include="Game\Code\Utility\Math.cs" />
+    <Compile Include="Impl\UnityImage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DeepCore\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\..\DeepCore\DeepCore.GUI\DeepCore.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore.GUI.Display\DeepCore.GUI.Display.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity.GUI\DeepCore.Unity.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity\DeepCore.Unity.csproj" />
+    <ProjectReference Include="..\DeepCore.Voxel\DeepCore.Voxel.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="UnityTechnologies.UnityEngine" Version="2020.2.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resource\" />
+  </ItemGroup>
+</Project>

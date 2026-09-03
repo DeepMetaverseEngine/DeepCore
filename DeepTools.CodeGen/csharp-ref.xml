@@ -1,0 +1,28 @@
+
+<doc>
+<INCLUDE>
+	<DEFINE>
+		<INCLUDE_CLASS>[DeepCore.Reflection.ReflectibleAttribute]</INCLUDE_CLASS>
+		<EXCLUDE_CLASS></EXCLUDE_CLASS>
+	</DEFINE>
+</INCLUDE>
+<CODE_TEMPLATE>
+using DeepCore;
+using DeepCore.IO;
+using DeepCore.Reflection;
+using System;
+using System.Collections.Generic;
+namespace <CODE_NAME_SPACE/>
+{
+    // <NAME_SPACE/>
+	public partial class ReflectionTypes : DeepActivator
+	{
+		protected override void OnInit()
+		{
+<CLASS>			Regist(typeof(<CLASS_NAME EmptyGenericArgs="1" />)<func IgnoreGenericArgs="True" IgnoreAbstract="True" IgnoreNonEmptyConstructor="True">, static (type, args) => new <CLASS_NAME/>()</func>);</CLASS>
+		}
+	}
+}
+</CODE_TEMPLATE>
+
+</doc>

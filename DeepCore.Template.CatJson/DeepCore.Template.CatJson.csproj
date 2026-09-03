@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <Version>1.2.15</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD2_0;SLUA_STANDALONE;NETSTANDARD;NETSTANDARD2_0;LUA_5_3</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="CatJsonCustomFormatter\**" />
+    <Compile Remove="lib\**" />
+    <Compile Remove="SluaManaged\**" />
+    <EmbeddedResource Remove="CatJsonCustomFormatter\**" />
+    <EmbeddedResource Remove="lib\**" />
+    <EmbeddedResource Remove="SluaManaged\**" />
+    <None Remove="CatJsonCustomFormatter\**" />
+    <None Remove="lib\**" />
+    <None Remove="SluaManaged\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="LuaSvr.cs" />
+    <Compile Remove="TemplateLoaderSLua.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="slua.dll" />
+    <None Remove="slua.pdb" />
+    <None Remove="slua.so" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+</Project>

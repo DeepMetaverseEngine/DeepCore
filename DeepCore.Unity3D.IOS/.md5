@@ -1,0 +1,8 @@
+95136b76f2e39e7f1a921d0bc3dcf0ed : \DeepCore.Unity3D.IOS.csproj
+49c08331cc73f84a970f1c92d41cd9be : \UnityPlatformIOS.cs
+4ac9535eed32c097ad95135eb1a47d73 : \UnityPlatformIOSTextInput.cs
+453ace97e5d407ce51aa828a2fd3fc5d : \Native\ios\CommonMPQ.cpp
+ec0245da5aef60b37ed466ccde96b197 : \Native\ios\CommonMPQ.h
+52601524105feccaa12564188bd45148 : \Native\ios\CommonUnityLib.mm
+2ffcde8b6ba4cc3866f51d1cbc8e9aa4 : \Native\ios\MFMD5.cpp
+3cf174ecddfb4f7b383e20c58d358803 : \Native\ios\MFMD5.h

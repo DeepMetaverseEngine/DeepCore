@@ -1,0 +1,8 @@
+3a9c99093b90adfe590a4cba89126388 : \Gate.Server.Main.csproj
+c09bd248f989707af3d0e5af19247b3d : \GateMainLoop.cs
+080c466f6a774c9f8c596f46fbb157f1 : \GateServerSingleMainLoop.cs
+a39b19fa1a29bedb107459b1e1693a18 : \Program.cs
+a089ac29b469b136e0fae288ed5ff8bf : \serverlist.xml
+c8fa2e7550a1b5e27f0b38b710ed31dd : \lang\en_us\lang.properties
+2d79a2b4ca67be49e598399bc90cab51 : \lang\zh_cn\lang.properties
+c2eb05ae00460ad2d0dce1cfabfee129 : \Simple\SimpleGateMainLoop.cs

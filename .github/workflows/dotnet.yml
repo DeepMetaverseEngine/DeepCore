@@ -1,0 +1,57 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.x
+    - name: Dotnet Publish
+      run: dotnet publish DeepMetaGame.CLI/DeepMetaGame.CLI.csproj -c Debug -f net10.0 -p:PublishProfile=DeepMetaGame.CLI/Properties/PublishProfiles/FolderProfile.pubxml
+    - name: Upload Result
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-artifacts
+        path: ${{ github.workspace }}/.outputs/gamecli.exe
+        
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    # 限制只有推送到 master 分支时才触发 Release，避免 Pull Request 期间报错
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          # 将文件下载到指定目录，方便后续打包上传
+          path: ./downloaded-artifacts
+
+      - name: Create or Update GitHub Release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # 使用固定的 tag_name，如果已存在，该插件会自动更新它而不会报错
+          tag_name: v1.0.0
+          name: Release v1.0.0
+          body: |
+            Release notes for v1.0.0
+          draft: false
+          prerelease: false
+          # 直接在这里指定要上传的文件路径，插件会自动处理上传
+          files: ./downloaded-artifacts/gamecli.exe
+

@@ -1,0 +1,7 @@
+250b456e09b417a29e87dc1b563df882 : \DeepFrozen.Redis.csproj
+00f810c11c3440f5adafdf8be0aa89c8 : \ORM\RedisChannel.cs
+6af4f17269624b66b310d47680da3a40 : \ORM\RedisConditions.cs
+59205139f582bb3322b742731e213be1 : \ORM\RedisConverter.cs
+68800fcb23658b1dbf5cf4ce62d914d1 : \ORM\RedisDatabase.cs
+9fb90cf1ce630b0bed3262851fd96b94 : \ORM\RedisDump.cs
+6cdcec7bc655b2bcaaa7e4c1feffc847 : \ORM\RedisORMFactory.cs

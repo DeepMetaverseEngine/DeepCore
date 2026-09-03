@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <Version>1.2.28</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+    <DefineConstants>$(DefineConstants);NATIVE_WEBSOCKET</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Memory" Version="4.6.3" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.6.3" />
+    <PackageReference Include="System.ValueTuple" Version="4.6.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\DeepCore.Unity.Assets\Assets\Plugins\DeepCore\WebSocket\**\*.cs" Link="WebSocket\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\IWebSocket.cs" />
+    <Content Remove="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\WebSocket.cs" />
+    <Content Remove="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\WebSocketFactoryWebGL.cs" />
+    <Content Remove="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\WebSocketTypes.cs" />
+    <Content Remove="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\WebSocketWebGL.cs" />
+    <Content Remove="..\DeepCore.Unity.Assets\Assets\Plugins\DeepCore\WebSocket\WSNetClient.cs" />
+    <Content Remove="..\DeepCore.Unity.Assets\Assets\Plugins\DeepCore\WebSocket\WSNetClientFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\IWebSocket.cs" />
+    <Compile Include="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\WebSocket.cs" />
+    <Compile Include="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\WebSocketFactoryWebGL.cs" />
+    <Compile Include="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\WebSocketTypes.cs" />
+    <Compile Include="..\DeepCore.Unity.Assets\Assets\Plugins\WebSocket\WebSocketWebGL.cs" />
+    <Compile Include="..\DeepCore.Unity.Assets\Assets\Plugins\DeepCore\WebSocket\WSNetClient.cs" />
+    <Compile Include="..\DeepCore.Unity.Assets\Assets\Plugins\DeepCore\WebSocket\WSNetClientFactory.cs" />
+  </ItemGroup>
+</Project>

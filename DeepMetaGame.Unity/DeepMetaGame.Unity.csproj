@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Version>1.2.18</Version>
+    <RootNamespace>DeepMetaGame.Unity</RootNamespace>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="BattleView\**" />
+    <Compile Remove="Library\**" />
+    <EmbeddedResource Remove="BattleView\**" />
+    <EmbeddedResource Remove="Library\**" />
+    <None Remove="BattleView\**" />
+    <None Remove="Library\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Simple\SimpleBattleRoot.cs" />
+    <Compile Remove="Simple\SimpleGateRoot.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BattleView\Mono.cs" />
+    <Compile Include="BattleView\UI\HUD.cs" />
+    <Compile Include="BattleView\UI\HUDDamageText.cs" />
+    <Compile Include="BattleView\UnityBattleConfig.cs" />
+    <Compile Include="BattleView\UnityZone.Space.cs" />
+    <Compile Include="BattleView\UnityZone.Camera.cs" />
+    <Compile Include="BattleView\UnityZone.Raycast.cs" />
+    <Compile Include="BattleView\UnityZone.Effect.cs" />
+    <Compile Include="BattleView\UI\HUDUnitHPBar.cs" />
+    <Compile Include="BattleView\UnityZoneObjectMaterialAction.cs" />
+    <Compile Include="BattleView\UnityZoneActor.cs" />
+    <Compile Include="BattleView\UnityZoneItem.cs" />
+    <Compile Include="BattleView\UnityZoneSpell.cs" />
+    <Compile Include="BattleView\UnityZoneUnit.VisibleBuffStatus.cs" />
+    <Compile Include="BattleView\UnityZoneUnit.UnitActionStatus.cs" />
+    <Compile Include="BattleView\UnityZoneFlag.cs" />
+    <Compile Include="BattleView\UnityZone._.cs" />
+    <Compile Include="BattleView\UnityLayerObject.cs" />
+    <Compile Include="BattleView\UnityBattleHelper.cs" />
+    <Compile Include="BattleView\UnityZoneObject.cs" />
+    <Compile Include="BattleView\UnityZoneUnit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="UnityTechnologies.UnityEngine" Version="2020.2.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity.GUI\DeepCore.Unity.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity3D\DeepCore.Unity3D.csproj" />
+    <ProjectReference Include="..\DeepCore.Unity\DeepCore.Unity.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Data\DeepMetaGame.Data.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Display\DeepMetaGame.Display.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Slave\DeepMetaGame.Slave.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+ <doc>{
+"Data":{<DATA_ROW><ROW SPLIT=',&#13;'><DATA_KEY><KEY_TEXT/>:</DATA_KEY>{<CELL SPLIT=','>"<HEAD_TEXT/>":<TEXT/></CELL>}</ROW>
+</DATA_ROW>
+   }
+}</doc>

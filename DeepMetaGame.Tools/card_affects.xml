@@ -1,0 +1,23 @@
+<doc>
+// 警告: 自动生成的代码，不要编辑此文件
+using DeepCore;
+using DeepCore.IO;
+using System;
+using System.Collections.Generic;
+using DeepMetaGame.Data.FuncData;
+using DeepMetaGame.Data.Template;
+
+namespace DeepMetaGame.Data.FuncData
+{
+	public partial class FillCartridges : IFillCartridgesAssembly
+	{
+		public FillCartridges()
+		{<CARDS>
+			CardManager.RegistDelegate(<CARD_ID/>, Fill_Card_<CARD_ID/>, Copy_Card_<CARD_ID/>);//<CARD_NAME/></CARDS>
+		}
+	
+	}
+	
+}
+// 警告: 自动生成的代码，不要编辑此文件
+</doc>

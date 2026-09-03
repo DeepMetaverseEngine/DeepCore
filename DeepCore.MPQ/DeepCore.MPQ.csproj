@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <Version>1.2.26</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="FuncData\**" />
+    <Compile Remove="Lua\**" />
+    <EmbeddedResource Remove="FuncData\**" />
+    <EmbeddedResource Remove="Lua\**" />
+    <None Remove="FuncData\**" />
+    <None Remove="Lua\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Components\Modules.cs" />
+    <Compile Remove="Json\JsonConfig.cs" />
+    <Compile Remove="LanguageManager.cs" />
+    <Compile Remove="PomeloClient\PomeloClient.TCPAsync.cs" />
+    <Compile Remove="Reflection\Catgorys.cs" />
+    <Compile Remove="Threading\UpdateActionTaskQueue.cs" />
+    <Compile Remove="UnionValue.cs" />
+    <Compile Remove="UnionValueArray.cs" />
+    <Compile Remove="UnionValueMap.cs" />
+    <Compile Remove="UnionValueSerializer.cs" />
+    <Compile Remove="Updateable.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Memory" Version="4.6.3" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.6.3" />
+    <PackageReference Include="System.ValueTuple" Version="4.6.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Net\DeepCore.Net.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>

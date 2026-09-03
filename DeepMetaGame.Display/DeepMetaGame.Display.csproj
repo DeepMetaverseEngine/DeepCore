@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <Version>1.2.15</Version>
+    <RootNamespace>DeepMetaGame.Display</RootNamespace>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="GUI\Nodes\**" />
+    <EmbeddedResource Remove="GUI\Nodes\**" />
+    <None Remove="GUI\Nodes\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Component\GUINode.Game.cs" />
+    <Compile Remove="GUI\BattleUIFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Event\DeepCore.Event.csproj" />
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore.GUI.Display\DeepCore.GUI.Display.csproj" />
+    <ProjectReference Include="..\DeepCore.GUI\DeepCore.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Data\DeepMetaGame.Data.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Host\DeepMetaGame.Host.csproj" />
+    <ProjectReference Include="..\DeepMetaGame.Slave\DeepMetaGame.Slave.csproj" />
+  </ItemGroup>
+</Project>

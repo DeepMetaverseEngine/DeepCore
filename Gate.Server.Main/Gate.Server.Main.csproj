@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.2.18</Version>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="lang\**" />
+    <Compile Remove="Simple\**" />
+    <EmbeddedResource Remove="lang\**" />
+    <EmbeddedResource Remove="Simple\**" />
+    <None Remove="lang\**" />
+    <None Remove="Simple\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="serverlist.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="serverlist.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore.Template.MoonSharp\DeepCore.Template.MoonSharp.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepCrystal\DeepCrystal.csproj" />
+    <ProjectReference Include="..\DeepFrozen.MySQL\DeepFrozen.MySQL.csproj" />
+    <ProjectReference Include="..\DeepFrozen.Redis\DeepFrozen.Redis.csproj" />
+    <ProjectReference Include="..\DeepFrozen.RPC.ICE\DeepFrozen.RPC.ICE.csproj" />
+    <ProjectReference Include="..\DeepFrozen.RPC\DeepFrozen.RPC.csproj" />
+    <ProjectReference Include="..\DeepFrozen.Server.NetUV\DeepFrozen.Server.NetUV.csproj" />
+    <ProjectReference Include="..\DeepTools.DBLauncher\DeepTools.DBLauncher.csproj" />
+    <ProjectReference Include="..\Gate.Client\Gate.Client.csproj" />
+    <ProjectReference Include="..\Gate.Data\Gate.Data.csproj" />
+    <ProjectReference Include="..\Gate.Server\Gate.Server.csproj" />
+  </ItemGroup>
+</Project>

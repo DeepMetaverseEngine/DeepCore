@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <Version>1.2.19</Version>
+    <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Data\**" />
+    <Compile Remove="Display\Action\**" />
+    <Compile Remove="Display\Node\**" />
+    <Compile Remove="Display\SceneGraph2D\**" />
+    <Compile Remove="Display\UIEditor\**" />
+    <Compile Remove="Display\UI\**" />
+    <Compile Remove="Gemo\**" />
+    <Compile Remove="Loader\**" />
+    <Compile Remove="Tool\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Display\Action\**" />
+    <EmbeddedResource Remove="Display\Node\**" />
+    <EmbeddedResource Remove="Display\SceneGraph2D\**" />
+    <EmbeddedResource Remove="Display\UIEditor\**" />
+    <EmbeddedResource Remove="Display\UI\**" />
+    <EmbeddedResource Remove="Gemo\**" />
+    <EmbeddedResource Remove="Loader\**" />
+    <EmbeddedResource Remove="Tool\**" />
+    <None Remove="Data\**" />
+    <None Remove="Display\Action\**" />
+    <None Remove="Display\Node\**" />
+    <None Remove="Display\SceneGraph2D\**" />
+    <None Remove="Display\UIEditor\**" />
+    <None Remove="Display\UI\**" />
+    <None Remove="Gemo\**" />
+    <None Remove="Loader\**" />
+    <None Remove="Tool\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Display\Canvas.cs" />
+    <Compile Remove="Display\Color.cs" />
+    <Compile Remove="Display\UILayout.cs" />
+    <Compile Remove="UIFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore.GUI\DeepCore.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+</Project>

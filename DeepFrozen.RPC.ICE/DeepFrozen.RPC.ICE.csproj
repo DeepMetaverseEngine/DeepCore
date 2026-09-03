@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <LangVersion>default</LangVersion>
+    <Version>1.2.16</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Command\**" />
+    <Compile Remove="old\**" />
+    <EmbeddedResource Remove="Command\**" />
+    <EmbeddedResource Remove="old\**" />
+    <None Remove="Command\**" />
+    <None Remove="old\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Launcher\TLNameServerBox.cs" />
+    <Compile Remove="Launcher\TLServiceNodeBox.cs" />
+    <Compile Remove="NameServer\IceNameServerBox.cs" />
+    <Compile Remove="ServiceNode\IceServiceNodeBox.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="call_slice.bat" />
+    <None Remove="slice\DeepFrozen.ice" />
+    <None Remove="slice\DeepFrozen.ICE.Service.ice" />
+    <None Remove="slice\DeepFrozen.NameServer.ice" />
+    <None Remove="slice\DeepFrozen.Service.ice" />
+    <None Remove="slice\DeepFrozen.ServiceNode.ice" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="call_slice.bat">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="slice\DeepFrozen.ice" />
+    <EmbeddedResource Include="slice\DeepFrozen.NameServer.ice" />
+    <EmbeddedResource Include="slice\DeepFrozen.ServiceNode.ice" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Diagnostics.Tools" Version="4.3.0" />
+    <PackageReference Include="zeroc.ice.net" Version="3.7.11" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="generated\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepCrystal\DeepCrystal.csproj" />
+    <ProjectReference Include="..\DeepFrozen.RPC\DeepFrozen.RPC.csproj" />
+  </ItemGroup>
+</Project>

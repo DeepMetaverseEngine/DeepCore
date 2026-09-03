@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net9.0-windows;net10.0-windows</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <StartupObject>DeepTools.Image.Program</StartupObject>
+    <AssemblyName>image</AssemblyName>
+    <Configurations>Debug;Release;Source</Configurations>
+    <Version>1.2.10</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>FuckPomelo.DeepTools.Image</PackageId>
+    <Description>DeepCore</Description>
+    <Authors>wazazhang</Authors>
+    <Company>FuckPomelo</Company>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepEditor.Common\DeepEditor.Common.csproj" />
+  </ItemGroup>
+</Project>

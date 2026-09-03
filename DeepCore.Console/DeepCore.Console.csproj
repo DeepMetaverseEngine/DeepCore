@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<LangVersion>latest</LangVersion>
+		<Version>1.2.28</Version>
+		<Deterministic>true</Deterministic>
+		<Configurations>Debug;Release;Source</Configurations>
+		<RootNamespace>DeepEditorConsole</RootNamespace>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>DeepMeta.$(AssemblyName)</PackageId>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<Optimize>false</Optimize>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Source'">
+		<Optimize>false</Optimize>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+	</ItemGroup>
+
+</Project>

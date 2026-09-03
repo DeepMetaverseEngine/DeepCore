@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<Version>1.2.19</Version>
+		<RootNamespace>DeepMetaGame.Unity.Assets</RootNamespace>
+		<Deterministic>true</Deterministic>
+		<Configurations>Debug;Release;Source</Configurations>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>DeepMeta.$(AssemblyName)</PackageId>
+	</PropertyGroup>
+	<PropertyGroup>
+		<DefineConstants>$(DefineConstants);UNITASK_UGUI_SUPPORT;FGUI;UNITY_STANDALONE_WIN</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="Assets\**" />
+		<Compile Remove="Assets\Battlehub\RTEditorDemo\**" />
+		<Compile Remove="Assets\Battlehub\RTH\Resources\**" />
+		<Compile Remove="Assets\Battlehub\**" />
+		<Compile Remove="Resources\**" />
+		<EmbeddedResource Remove="Assets\**" />
+		<EmbeddedResource Remove="Assets\Battlehub\RTEditorDemo\**" />
+		<EmbeddedResource Remove="Assets\Battlehub\RTH\Resources\**" />
+		<EmbeddedResource Remove="Assets\Battlehub\**" />
+		<EmbeddedResource Remove="Resources\**" />
+		<None Remove="Assets\**" />
+		<None Remove="Assets\Battlehub\RTEditorDemo\**" />
+		<None Remove="Assets\Battlehub\RTH\Resources\**" />
+		<None Remove="Assets\Battlehub\**" />
+		<None Remove="Resources\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="Assets\Battlehub\RTH\Scripts\SimpleBattleProxy.cs" />
+		<Compile Include="Assets\Battlehub\RTH\Scripts\SimpleEdiorRoot.cs" />
+		<Compile Include="Assets\Battlehub\RTH\Scripts\SimpleEditorProxy.cs" />
+		<Compile Include="Assets\Battlehub\RTH\Scripts\SimplePreviewProxy.cs" />
+		<Compile Include="Assets\Battlehub\RTH\Scripts\SimpleResourceProxy.cs" />
+		<Compile Include="Assets\Plugins\DeepCore\Battle\UnityLauncher.cs" />
+		<Compile Include="Assets\Plugins\DeepCore\Battle\BaseBattleRoot.cs" />
+		<Compile Include="Assets\Plugins\DeepCore\Battle\BattleBootstrap.cs" />
+		<Compile Include="Assets\Plugins\DeepCore\FGUI\UnityZoneFairyGUIRuntime.cs" />
+		<Compile Include="Assets\Plugins\DeepCore\Yoo.Sample\AssetsManager.cs" />
+		<Compile Include="Assets\Plugins\DeepCore\Yoo.Sample\Editor\BuildTools.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="UniTask" Version="2.5.10" />
+		<PackageReference Include="UnityTechnologies.UnityEngine" Version="2020.2.2.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+		<ProjectReference Include="..\DeepCore.GUI.Display\DeepCore.GUI.Display.csproj" />
+		<ProjectReference Include="..\DeepCore.GUI\DeepCore.GUI.csproj" />
+		<ProjectReference Include="..\DeepCore.Unity.Assets\DeepCore.Unity.Assets.csproj" />
+		<ProjectReference Include="..\DeepCore.Unity.GUI\DeepCore.Unity.GUI.csproj" />
+		<ProjectReference Include="..\DeepCore.Unity3D.Win32\DeepCore.Unity3D.Win32.csproj" />
+		<ProjectReference Include="..\DeepCore.Unity3D\DeepCore.Unity3D.csproj" />
+		<ProjectReference Include="..\DeepCore.Unity\DeepCore.Unity.csproj" />
+		<ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.Data\DeepMetaGame.Data.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.Display\DeepMetaGame.Display.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.Host\DeepMetaGame.Host.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.Slave\DeepMetaGame.Slave.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.UnityPreview\DeepMetaGame.UnityPreview.csproj" />
+		<ProjectReference Include="..\DeepMetaGame.Unity\DeepMetaGame.Unity.csproj" />
+		<ProjectReference Include="..\Gate.Client\Gate.Client.csproj" />
+		<ProjectReference Include="..\Gate.Data\Gate.Data.csproj" />
+		<ProjectReference Include="..\MMO.Client\MMO.Client.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,158 @@
+<doc>
+
+  <DEFINE>
+    <USING>DeepCore</USING>
+    <USING>DeepCore.IO</USING>
+    <USING>DeepCore.ORM</USING>
+    <USING>DeepCrystal</USING>
+    <USING>DeepCrystal.ORM</USING>
+    <USING>DeepCrystal.ORM.Generic</USING>
+    <INCLUDE_CLASS>DeepCore.ORM.IObjectMapping</INCLUDE_CLASS>
+    <!--#######################################################################################################################################-->
+    <FIELD FieldType="object" Any="True">
+      <NOP>        public <F_TYPE_NAME/> <F_NAME/>
+        {
+            get { return this.Data.<F_NAME/>; }
+            set { this.Data.<F_NAME/> = value; }
+        }</NOP>
+      <DECLARE>        private DynamicFieldMapping f_<F_NAME/>;</DECLARE>
+      <INIT>            this.f_<F_NAME/> = base.InternalGetSubField("<F_NAME/>");</INIT>
+    </FIELD>
+    <!--=======================================================================================================================================-->
+    <FIELD FieldType="object" Any="True" ValidateField="DeepCore.ORM.PersistFieldAttribute;IsPrimary">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public <F_TYPE_NAME/> <F_NAME/>
+        {
+            get { return this.Data.<F_NAME/>; }
+        }</OP>
+    </FIELD>
+    <FIELD FieldType="object" Any="True" ValidateField="DeepCore.ORM.PersistFieldAttribute;IsCacheInMemory">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public <F_TYPE_NAME/> <F_NAME/>
+        {
+            get { return this.Data.<F_NAME/>; }
+            set { this.Data.<F_NAME/> = value; base.InternalSetMappingField(f_<F_NAME/>, value, false); }
+        }</OP>
+    </FIELD>
+    <FIELD FieldType="object" Any="True" ValidateField="DeepCore.ORM.PersistFieldAttribute;IsLoadImmediately">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public <F_TYPE_NAME/> <F_NAME/>
+        {
+            set { this.Data.<F_NAME/> = value; base.InternalSetMappingField(f_<F_NAME/>, value, false); }
+        }       
+        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public System.Threading.Tasks.Task&lt;<F_TYPE_NAME/>&gt; load_<F_NAME/>_async()
+        {
+            return base.LoadFieldAsync&lt;<F_TYPE_NAME/>&gt;(f_<F_NAME/>);
+        }</OP>
+    </FIELD>
+    <FIELD FieldType="object" Any="True" ValidateField="DeepCore.ORM.PersistFieldAttribute;IsSaveImmediately">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public <F_TYPE_NAME/> <F_NAME/> { get { return this.Data.<F_NAME/>; } }        
+        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public System.Threading.Tasks.Task save_<F_NAME/>_async(<F_TYPE_NAME/> value)
+        {
+            return base.SaveFieldAsync(f_<F_NAME/>, value);
+        }</OP>
+    </FIELD>
+    <FIELD FieldType="object" Any="True" ValidateField="DeepCore.ORM.PersistFieldAttribute;IsSaveLoadImmediately">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public System.Threading.Tasks.Task&lt;<F_TYPE_NAME/>&gt; load_<F_NAME/>_async()
+        {
+            return base.LoadFieldAsync&lt;<F_TYPE_NAME/>&gt;(f_<F_NAME/>);
+        }
+        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public System.Threading.Tasks.Task save_<F_NAME/>_async(<F_TYPE_NAME/> value)
+        {
+            return base.SaveFieldAsync(f_<F_NAME/>, value);
+        }</OP>
+    </FIELD>
+    <!--#######################################################################################################################################-->
+    <!--### Mapping Reference ###-->
+    <FIELD FieldType="DeepCore.ORM.IObjectMapping" Interface="True" >
+      <OP>        public <F_TYPE_NAME/>Mapping <F_NAME/> 
+        { 
+            get; private set; 
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetMappingField("<F_NAME/>") as <F_TYPE_NAME/>Mapping;    </INIT>
+      <DECLARE/>
+    </FIELD>
+    <!--### Mapping Array ###-->
+    <FIELD FieldType="System.Array" Element="True" ValidateType="DeepCrystal.ORM.ORMFactory;IsMappingCollection">
+      <OP>        public MappingArray&lt;<F_E_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetMappingName"><F_E_TYPE_VALUE/></DYNAMIC_CALL>&gt; <F_NAME/> 
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetMappingField("<F_NAME/>") as MappingArray&lt;<F_E_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetMappingName"><F_E_TYPE_VALUE/></DYNAMIC_CALL>&gt;;</INIT>
+      <DECLARE/>
+    </FIELD>
+    <!--### Mapping List ###-->
+    <FIELD FieldType="System.Collections.IList" Interface="True" ValidateType="DeepCrystal.ORM.ORMFactory;IsMappingCollection">
+      <OP>        [Obsolete("性能极差")]public MappingList&lt;<F_G0_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetMappingName"><F_G0_TYPE_VALUE/></DYNAMIC_CALL>&gt; <F_NAME/>
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetMappingField("<F_NAME/>") as MappingList&lt;<F_G0_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetMappingName"><F_G0_TYPE_VALUE/></DYNAMIC_CALL>&gt;;</INIT>
+      <DECLARE/>
+    </FIELD>
+    <!--### Mapping Map ###-->
+    <FIELD FieldType="System.Collections.IDictionary" Interface="True" ValidateType="DeepCrystal.ORM.ORMFactory;IsMappingCollection">
+      <OP>        public MappingDictionary&lt;<F_G0_TYPE_NAME/>, <F_G1_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetMappingName"><F_G1_TYPE_VALUE/></DYNAMIC_CALL>&gt; <F_NAME/>
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetMappingField("<F_NAME/>") as MappingDictionary&lt;<F_G0_TYPE_NAME/>, <F_G1_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetMappingName"><F_G1_TYPE_VALUE/></DYNAMIC_CALL>&gt;;</INIT>
+      <DECLARE/> 
+    </FIELD>
+    <!--#######################################################################################################################################-->
+    <!--### Mapping Struct ###-->
+    <FIELD FieldType="DeepCore.ORM.IStructMapping" Interface="True" >
+      <OP>        public <F_TYPE_NAME/>Wrapper <F_NAME/> 
+        { 
+            get; private set; 
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetWrapperField("<F_NAME/>") as <F_TYPE_NAME/>Wrapper;    </INIT>
+      <DECLARE/>
+    </FIELD>
+    <!--### Struct Array ###-->
+    <FIELD FieldType="System.Array" Element="True" ValidateType="DeepCrystal.ORM.ORMFactory;IsStructCollection">
+      <OP>        public MappingArray&lt;<F_E_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL>&gt; <F_NAME/>
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetMappingField("<F_NAME/>") as MappingArray&lt;<F_E_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL>&gt;;</INIT>
+      <DECLARE/>
+    </FIELD>
+    <!--### Struct List ###-->
+    <FIELD FieldType="System.Collections.IList" Interface="True" ValidateType="DeepCrystal.ORM.ORMFactory;IsStructCollection">
+      <OP>        [Obsolete("性能极差")]public MappingList&lt;<F_G0_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_G0_TYPE_VALUE/></DYNAMIC_CALL>&gt; <F_NAME/>
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetMappingField("<F_NAME/>") as MappingList&lt;<F_G0_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_G0_TYPE_VALUE/></DYNAMIC_CALL>&gt;;</INIT>
+      <DECLARE/>
+    </FIELD>
+    <!--### Struct Map ###-->
+    <FIELD FieldType="System.Collections.IDictionary" Interface="True" ValidateType="DeepCrystal.ORM.ORMFactory;IsStructCollection">
+      <OP>        public MappingDictionary&lt;<F_G0_TYPE_NAME/>, <F_G1_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_G1_TYPE_VALUE/></DYNAMIC_CALL>&gt; <F_NAME/>
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetMappingField("<F_NAME/>") as MappingDictionary&lt;<F_G0_TYPE_NAME/>, <F_G1_TYPE_NAME/>, <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_G1_TYPE_VALUE/></DYNAMIC_CALL>&gt;;</INIT>
+      <DECLARE/> 
+    </FIELD>
+    <!--#######################################################################################################################################-->
+    <!--### Wrapper List ###-->
+    <FIELD FieldType="System.Collections.IList" Interface="True">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL> <F_NAME/>
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetWrapperField("<F_NAME/>") as <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL>;</INIT>
+      <DECLARE/>
+    </FIELD>
+    <!--### Wrapper Map ###-->
+    <FIELD FieldType="System.Collections.IDictionary" Interface="True">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL> <F_NAME/>
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetWrapperField("<F_NAME/>") as <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL>;</INIT>
+      <DECLARE/>
+    </FIELD>
+    <!--#######################################################################################################################################-->
+  </DEFINE>
+
+</doc>

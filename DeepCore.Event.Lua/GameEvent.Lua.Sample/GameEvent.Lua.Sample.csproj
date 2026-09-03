@@ -1,0 +1,86 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BCF9006-21D1-4070-AAE7-85953886D33E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GameEvent.Lua.Sample</RootNamespace>
+    <AssemblyName>GameEvent.Lua.Sample</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <Version xmlns="">1.0.8</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GameEvent.Lua.Sample.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\Library\Unity3D\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\Library\Unity3D\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DeepCore.GameEvent\DeepCore.GameEvent.csproj">
+      <Project>{efcc33e1-b5e7-443b-a5c0-05ff6e9469ce}</Project>
+      <Name>DeepCore.GameEvent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DeepCore.Template.MoonSharp\DeepCore.Template.MoonSharp.csproj">
+      <Project>{2A5D94C1-2098-42DF-8760-98A08D17CDED}</Project>
+      <Name>DeepCore.Template.MoonSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DeepCore.Template.SLua\DeepCore.Template.SLua.csproj">
+      <Project>{B060A101-D08B-44AB-81F9-2404508CDA47}</Project>
+      <Name>DeepCore.Template.SLua</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DeepCore\DeepCore.csproj">
+      <Project>{0951676d-0fb3-4e35-b9d2-ed28ea141ada}</Project>
+      <Name>DeepCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeepCore.GameEvent.Lua.csproj">
+      <Project>{3b360d70-1a13-491f-84ff-8aebe1cebae7}</Project>
+      <Name>DeepCore.GameEvent.Lua</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

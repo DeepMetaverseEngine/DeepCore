@@ -1,0 +1,26 @@
+
+<doc>
+<INCLUDE>
+	<DEFINE>
+		<INCLUDE_CLASS>DeepCore.IO.ISerializable</INCLUDE_CLASS>
+		<EXCLUDE_CLASS></EXCLUDE_CLASS>
+	</DEFINE>
+</INCLUDE>
+<CODE_TEMPLATE>
+using DeepCore;
+using DeepCore.IO;
+using System;
+using System.Collections.Generic;
+namespace <CODE_NAME_SPACE/>
+{
+    // <NAME_SPACE/>
+    public partial class Serializer
+    {
+<CLASS IgnoreAbstract="True">
+	[GenCodeID(typeof(<CLASS_NAME/>), <MESSAGE_ID/>)] private const int codec_ID_<CLASS_NAME ReplaceKey="." ReplaceValue="_"/> = 0x<MESSAGE_ID Format="X8"/>;
+	[GenCodeCreate(typeof(<CLASS_NAME/>), <MESSAGE_ID/>)]<![CDATA[private static Func<Type, object>]]> c_<MESSAGE_ID/> = static t => new <CLASS_NAME/>();</CLASS>
+    }
+}
+</CODE_TEMPLATE>
+
+</doc>

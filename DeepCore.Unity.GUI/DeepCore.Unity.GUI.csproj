@@ -1,0 +1,97 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version>1.2.15</Version>
+    <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Game\**" />
+    <Compile Remove="GizmosUtils\**" />
+    <Compile Remove="Impl\Android\**" />
+    <Compile Remove="Impl\iOS\**" />
+    <Compile Remove="Impl\Win32\**" />
+    <Compile Remove="lib\**" />
+    <Compile Remove="native\**" />
+    <Compile Remove="Resource\**" />
+    <Compile Remove="Src\BattleClient3D\**" />
+    <Compile Remove="Core\**" />
+    <Compile Remove="Src\Editor.Ipc\**" />
+    <Compile Remove="Src\Editor\**" />
+    <Compile Remove="Src\GUI\**" />
+    <Compile Remove="Impl\Android\**" />
+    <Compile Remove="Impl\iOS\**" />
+    <Compile Remove="Impl\Win32\**" />
+    <EmbeddedResource Remove="Game\**" />
+    <EmbeddedResource Remove="GizmosUtils\**" />
+    <EmbeddedResource Remove="Impl\Android\**" />
+    <EmbeddedResource Remove="Impl\iOS\**" />
+    <EmbeddedResource Remove="Impl\Win32\**" />
+    <EmbeddedResource Remove="lib\**" />
+    <EmbeddedResource Remove="native\**" />
+    <EmbeddedResource Remove="Resource\**" />
+    <EmbeddedResource Remove="Src\BattleClient3D\**" />
+    <EmbeddedResource Remove="Core\**" />
+    <EmbeddedResource Remove="Src\Editor.Ipc\**" />
+    <EmbeddedResource Remove="Src\Editor\**" />
+    <EmbeddedResource Remove="Src\GUI\**" />
+    <EmbeddedResource Remove="Impl\Android\**" />
+    <EmbeddedResource Remove="Impl\iOS\**" />
+    <EmbeddedResource Remove="Impl\Win32\**" />
+    <None Remove="Game\**" />
+    <None Remove="GizmosUtils\**" />
+    <None Remove="Impl\Android\**" />
+    <None Remove="Impl\iOS\**" />
+    <None Remove="Impl\Win32\**" />
+    <None Remove="lib\**" />
+    <None Remove="native\**" />
+    <None Remove="Resource\**" />
+    <None Remove="Src\BattleClient3D\**" />
+    <None Remove="Core\**" />
+    <None Remove="Src\Editor.Ipc\**" />
+    <None Remove="Src\Editor\**" />
+    <None Remove="Src\GUI\**" />
+    <None Remove="Impl\Android\**" />
+    <None Remove="Impl\iOS\**" />
+    <None Remove="Impl\Win32\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="OnGUI\GUIGraph.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="UnityTechnologies.UnityEngine" Version="2020.2.2.1" />
+  </ItemGroup>
+</Project>

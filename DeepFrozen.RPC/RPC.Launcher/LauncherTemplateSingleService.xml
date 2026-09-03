@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+
+	<GlobalConfig>
+		GLOBAL_CONFIG
+	</GlobalConfig>
+
+	<NameServer>
+		<RpcConfig>
+			<LocalEndPoint>127.0.0.1:RPC_NAME_PORT</LocalEndPoint>
+			<NetworkTimeoutMS>15000</NetworkTimeoutMS>
+			<RpcCodec>RPC_CODEC</RpcCodec>
+		</RpcConfig>
+	</NameServer>
+
+	<ServiceNodes>
+		<GateNode>
+			<RpcConfig>
+				<LocalNodeName>NODE_NAME</LocalNodeName>
+				<LocalEndPoint>127.0.0.1:RPC_NODE_PORT</LocalEndPoint>
+				<NameServerEndPoint>127.0.0.1:RPC_NAME_PORT</NameServerEndPoint>
+				<RequestTickTimeMS>15000</RequestTickTimeMS>
+				<NetworkTimeoutMS>30000</NetworkTimeoutMS>
+				<DefaultTaskExecuteTimeout>60000</DefaultTaskExecuteTimeout>
+				<RpcCodec>RPC_CODEC</RpcCodec>
+				<AcceptTypeMappings>
+					SERVICE_MAPPING
+				</AcceptTypeMappings>
+			</RpcConfig>
+			<StartService>
+				<SERVICE_NAME>
+					<ServiceName>SERVICE_NAME</ServiceName>
+					<ServiceType>SERVICE_TYPE</ServiceType>
+					<Config>
+						SERVICE_CONFIG
+					</Config>
+				</SERVICE_NAME>
+			</StartService>
+		</GateNode>
+	</ServiceNodes>
+
+</doc>

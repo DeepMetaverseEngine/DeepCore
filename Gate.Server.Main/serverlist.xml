@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<serverList>
+		<server realm="1" id="1"  group="1"  name="localhost:19300"  address="127.0.0.1:19300"         state ="1:正常"  is_open="1"  view_index="0"  nodes="LogicNode1"/>
+	</serverList>
+	<recomList>
+		<serverId>1</serverId>
+		<serverId>9002</serverId>
+	</recomList>
+</doc>

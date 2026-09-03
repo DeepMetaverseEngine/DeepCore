@@ -1,0 +1,67 @@
+<doc>
+
+  <DEFINE>
+    <FIELD FieldType="System.Byte">
+      <GET_TYPE_NAME>byte</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.SByte">
+      <GET_TYPE_NAME>sbyte</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.Int16">
+      <GET_TYPE_NAME>short</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.UInt16">
+      <GET_TYPE_NAME>ushort</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.Int32">
+      <GET_TYPE_NAME>int</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.UInt32">
+      <GET_TYPE_NAME>uint</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.Int64">
+      <GET_TYPE_NAME>long</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.UInt64">
+      <GET_TYPE_NAME>ulong</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.Single">
+      <GET_TYPE_NAME>float</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.Double">
+      <GET_TYPE_NAME>double</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.Boolean">
+      <GET_TYPE_NAME>bool</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.Char">
+      <GET_TYPE_NAME>char</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.String">
+      <GET_TYPE_NAME>string</GET_TYPE_NAME>
+    </FIELD>
+	<FIELD FieldType="System.Type">
+      <GET_TYPE_NAME>Type</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="Enum" Enum="True">
+      <GET_TYPE_NAME>
+        <F_TYPE_NAME/>
+      </GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.DateTime">
+      <GET_TYPE_NAME>DateTime</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.TimeSpan">
+      <GET_TYPE_NAME>TimeSpan</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.Byte[]">
+      <GET_TYPE_NAME>byte[]</GET_TYPE_NAME>
+    </FIELD>
+    <FIELD FieldType="System.Numerics.BigInteger">
+		<GET_TYPE_NAME>BigInteger</GET_TYPE_NAME>
+    </FIELD>
+
+
+  </DEFINE>
+
+</doc>

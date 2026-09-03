@@ -1,0 +1,61 @@
+<doc>
+
+  <DEFINE>
+    <INCLUDE_CLASS>DeepCore.ORM.IStructMapping</INCLUDE_CLASS>
+    <!--#######################################################################################################################################-->
+    <FIELD FieldType="object" Any="True">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public <F_TYPE_NAME/> <F_NAME/>
+        {
+            get { return this.Data.<F_NAME/>; }
+            set { this.Data.<F_NAME/> = value; base.FireDirty(); }
+        }</OP>
+      <INIT/>
+    </FIELD>
+     <!--#######################################################################################################################################-->
+    <!--### Mapping ###-->
+    <!-- <FIELD FieldType="DeepCore.ORM.IObjectMapping" Interface="True" >
+      <OP>        <F_NAME/>:  Not Support Mapping Object in Struct !!! </OP>
+      <INIT>            <F_NAME/>:  Not Support Mapping Object in Struct !!! </INIT>
+    </FIELD>
+    <FIELD FieldType="System.Array" Element="True" ValidateType="DeepCrystal.ORM.ORMFactory;IsMappingCollection">
+      <OP>        <F_NAME/>:  Not Support Mapping Object in Struct !!! </OP>
+      <INIT>            <F_NAME/>:  Not Support Mapping Object in Struct !!! </INIT>
+    </FIELD>
+    <FIELD FieldType="System.Collections.IList" Interface="True" ValidateType="DeepCrystal.ORM.ORMFactory;IsMappingCollection">  
+      <OP>        <F_NAME/>:  Not Support Mapping Object in Struct !!! </OP>
+      <INIT>            <F_NAME/>:  Not Support Mapping Object in Struct !!! </INIT>
+    </FIELD>
+    <FIELD FieldType="System.Collections.IDictionary" Interface="True" ValidateType="DeepCrystal.ORM.ORMFactory;IsMappingCollection">   
+      <OP>        <F_NAME/>:  Not Support Mapping Object in Struct !!! </OP>
+      <INIT>            <F_NAME/>:  Not Support Mapping Object in Struct !!! </INIT>
+    </FIELD> 
+    -->
+    <!--#######################################################################################################################################-->
+    <!--### Mapping Struct ###-->
+    <FIELD FieldType="DeepCore.ORM.IStructMapping" Interface="True" >     
+      <OP>        public <F_TYPE_NAME/>Wrapper <F_NAME/> 
+        { 
+            get; private set;
+        }</OP>     
+      <INIT>            this.<F_NAME/> = base.GetWrapperField("<F_NAME/>") as <F_TYPE_NAME/>Wrapper;    </INIT>
+    </FIELD>
+    <!--### Wrapper List ###-->
+    <FIELD FieldType="System.Collections.IList" Interface="True">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL> <F_NAME/>
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetWrapperField("<F_NAME/>") as <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL>;    </INIT>
+    </FIELD>
+    <!--### Wrapper Map ###-->
+    <FIELD FieldType="System.Collections.IDictionary" Interface="True">
+      <OP>        <DYNAMIC_CALL NotNull="True" InvokeMethod="DeepCrystal.ORM.ORMFactory;GetFieldAttribute"><F_TYPE_VALUE/></DYNAMIC_CALL>public <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL> <F_NAME/>
+        {
+            get; private set;
+        }</OP>
+      <INIT>            this.<F_NAME/> = base.GetWrapperField("<F_NAME/>") as <DYNAMIC_CALL InvokeMethod="DeepCrystal.ORM.ORMFactory;GetWrapperName"><F_TYPE_VALUE/></DYNAMIC_CALL>;    </INIT>
+    </FIELD>
+    <!--#######################################################################################################################################-->
+  </DEFINE>
+
+</doc>

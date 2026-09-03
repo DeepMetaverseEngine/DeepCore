@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows7.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>shttp</AssemblyName>
+    <StartupObject>DeepTools.SimpleHTTP.Program</StartupObject>
+    <Configurations>Debug;Release;Source</Configurations>
+    <Version>1.2.9</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>FuckPomelo.DeepTools.SimpleHTTP</PackageId>
+    <Description>DeepCore</Description>
+    <Authors>wazazhang</Authors>
+    <Company>FuckPomelo</Company>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DeepCore\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+</Project>

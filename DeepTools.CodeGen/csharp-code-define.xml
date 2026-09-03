@@ -1,0 +1,198 @@
+
+<doc>
+
+<DEFINE>
+  
+    <INCLUDE_CLASS>DeepCore.IO.ISerializable</INCLUDE_CLASS>
+    <EXCLUDE_CLASS>DeepCore.IO.IExternalizable</EXCLUDE_CLASS>
+
+    <FIELD_DEPEND_ON>
+      <BEGIN>if (<DEPEND_ON OP=" &amp;&amp; ">data.<D_FIELD/>==<D_EXPECT ToLower="true"/></DEPEND_ON>) {</BEGIN>
+      <END>}</END>
+    </FIELD_DEPEND_ON>
+
+    <!-- #################################################################################### -->
+  
+    <FIELD FieldType="System.Byte">
+      <READ Trim="True">data.<F_NAME/> = input.GetU8();</READ>
+      <WRITE Trim="True">output.PutU8(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetU8()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutU8(v)</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.SByte">
+      <READ Trim="True">data.<F_NAME/> = input.GetS8();</READ>
+      <WRITE Trim="True">output.PutS8(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetS8()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutS8(v)</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Int16">
+      <READ Trim="True">data.<F_NAME/> = input.GetS16();</READ>
+      <WRITE Trim="True">output.PutS16(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetS16()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutS16(v)</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.UInt16">
+      <READ Trim="True">data.<F_NAME/> = input.GetU16();</READ>
+      <WRITE Trim="True">output.PutU16(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetU16()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutU16(v)</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Int32">
+      <READ Trim="True">data.<F_NAME/> = input.GetS32();</READ>
+      <WRITE Trim="True">output.PutS32(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetS32()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutS32(v)</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.UInt32">
+      <READ Trim="True">data.<F_NAME/> = input.GetU32();</READ>
+      <WRITE Trim="True">output.PutU32(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetU32()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutU32(v)</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Int64">
+      <READ Trim="True">data.<F_NAME/> = input.GetS64();</READ>
+      <WRITE Trim="True">output.PutS64(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetS64()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutS64(v)</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.UInt64">
+      <READ Trim="True">data.<F_NAME/> = input.GetU64();</READ>
+      <WRITE Trim="True">output.PutU64(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetU64()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutU64(v)</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Single">
+      <READ Trim="True">data.<F_NAME/> = input.GetF32();</READ>
+      <WRITE Trim="True">output.PutF32(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetF32()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutF32(v)</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.Double">
+      <READ Trim="True">data.<F_NAME/> = input.GetF64();</READ>
+      <WRITE Trim="True">output.PutF64(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetF64()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutF64(v)</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Boolean">
+      <READ Trim="True">data.<F_NAME/> = input.GetBool();</READ>
+      <WRITE Trim="True">output.PutBool(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetBool()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutBool(v)</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Char">
+      <READ Trim="True">data.<F_NAME/> = input.GetUnicode();</READ>
+      <WRITE Trim="True">output.PutUnicode(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetUnicode()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutUnicode(v)</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.String">
+      <READ Trim="True">data.<F_NAME/> = input.GetUTF();</READ>
+      <WRITE Trim="True">output.PutUTF(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetUTF()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutUTF(v)</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.Type">
+      <READ Trim="True">data.<F_NAME/> = input.GetValueType();</READ>
+      <WRITE Trim="True">output.PutValueType(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetValueType()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutValueType(v)</E_WRITE>
+    </FIELD>
+	
+    <FIELD FieldType="Enum" Enum="True" >
+      <READ Trim="True">data.<F_NAME/> = input.GetEnum&lt;<F_TYPE_NAME/>&gt;();</READ>
+      <WRITE Trim="True">output.PutEnum(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetEnum&lt;<F_TYPE_NAME/>&gt;()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutEnum(v)</E_WRITE>
+    </FIELD>	
+
+    <FIELD FieldType="System.DateTime">
+      <READ Trim="True">data.<F_NAME/> = input.GetDateTime();</READ>
+      <WRITE Trim="True">output.PutDateTime(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetDateTime()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutDateTime(v)</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.TimeSpan">
+      <READ Trim="True">data.<F_NAME/> = input.GetTimeSpan();</READ>
+      <WRITE Trim="True">output.PutTimeSpan(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetTimeSpan()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutTimeSpan(v)</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.Numerics.BigInteger">
+      <READ Trim="True">data.<F_NAME/> = input.GetBigInt();</READ>
+      <WRITE Trim="True">output.PutBigInt(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetBigInt()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutBigInt(v)</E_WRITE>
+    </FIELD>
+	
+    <!-- #################################################################################### -->
+  
+    <FIELD FieldType="System.Byte[]">
+      <READ Trim="True">data.<F_NAME/> = input.GetBytes();</READ>
+      <WRITE Trim="True">output.PutBytes(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetBytes()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutBytes(v)</E_WRITE>
+    </FIELD>
+  
+    <FIELD FieldType="DeepCore.IO.ISerializable" Interface="True" >
+      <READ Trim="True">data.<F_NAME/> = (<F_TYPE_NAME/>)input.GetObjAny();</READ>
+      <WRITE Trim="True">output.PutObj(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>(<F_TYPE_NAME/>)i.GetObjAny()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutObj(v)</E_WRITE>
+    </FIELD>
+  
+    <FIELD FieldType="System.Array" Element="True" >
+      <READ Trim="True">data.<F_NAME/> = input.GetArray&lt;<F_E_TYPE_NAME/>&gt;(<F_E_READ/>, data.<F_NAME/>);</READ>
+      <WRITE Trim="True">output.PutArray(data.<F_NAME/>, <F_E_WRITE/>);</WRITE>
+      <E_READ>static (i)=>i.GetArray&lt;<F_E_TYPE_NAME/>&gt;(<F_E_READ/>)</E_READ>
+      <E_WRITE>static (o,v<F_DEEP/>)=>o.PutArray(v<F_DEEP/>, <F_E_WRITE/>)</E_WRITE>
+    </FIELD>
+
+	<FIELD FieldType="System.Nullable" Element="True" >
+      <READ Trim="True">data.<F_NAME/> = input.GetNullable&lt;<F_G0_TYPE_NAME/>&gt;(<F_G0_READ/>);</READ>
+      <WRITE Trim="True">output.PutNullable(data.<F_NAME/>, <F_G0_WRITE/>);</WRITE>
+      <E_READ>static (i)=>i.GetNullable&lt;<F_G0_TYPE_NAME/>&gt;(<F_G0_READ/>)</E_READ>
+      <E_WRITE>static (o,v<F_DEEP/>)=>o.PutNullable(v<F_DEEP/>, <F_G0_WRITE/>)</E_WRITE>
+    </FIELD>
+	
+	<!-- #################################################################################### -->
+	
+    <FIELD FieldType="System.Collections.IList" Interface="True">
+      <READ Trim="True">data.<F_NAME/> = input.GetList&lt;<F_TYPE_NAME/>, <F_G0_TYPE_NAME/>&gt;(<F_G0_READ/>, data.<F_NAME/>);</READ>
+      <WRITE Trim="True">output.PutList(data.<F_NAME/>, <F_G0_WRITE/>);</WRITE>
+      <E_READ>static (i)=>i.GetList&lt;<F_G0_TYPE_NAME/>&gt;(<F_G0_READ/>)</E_READ>
+      <E_WRITE>static (o,v<F_DEEP/>)=>o.PutList(v<F_DEEP/>, <F_G0_WRITE/>)</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Collections.IDictionary" Interface="True">
+      <READ Trim="True">data.<F_NAME/> = input.GetMap&lt;<F_TYPE_NAME/>, <F_G0_TYPE_NAME/>, <F_G1_TYPE_NAME/>&gt;(<F_G0_READ/>, <F_G1_READ/>, data.<F_NAME/>);</READ>
+      <WRITE Trim="True">output.PutMap(data.<F_NAME/>, <F_G0_WRITE/>, <F_G1_WRITE/>);</WRITE>
+      <E_READ>static (i)=>i.GetMap&lt;<F_G0_TYPE_NAME/>, <F_G1_TYPE_NAME/>&gt;(<F_G0_READ/>, <F_G1_READ/>)</E_READ>
+      <E_WRITE>static (o,v<F_DEEP/>)=>o.PutMap(v<F_DEEP/>, <F_G0_WRITE/>, <F_G1_WRITE/>)</E_WRITE>
+    </FIELD>
+	
+    <!-- #################################################################################### -->
+	
+	<FIELD FieldType="unmanaged" Unmanaged="True">
+      <READ Trim="True">data.<F_NAME/> = input.GetStruct&lt;<F_TYPE_NAME/>&gt;();</READ>
+      <WRITE Trim="True">output.PutStruct(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetStruct&lt;<F_TYPE_NAME/>&gt;()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutStruct(v)</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="any" Any="True">
+      <READ Trim="True">data.<F_NAME/> = input.GetRawData&lt;<F_TYPE_NAME/>&gt;();</READ>
+      <WRITE Trim="True">output.PutRawData(data.<F_NAME/>);</WRITE>
+      <E_READ>static (i)=>i.GetRawData&lt;<F_TYPE_NAME/>&gt;()</E_READ>
+      <E_WRITE>static (o,v)=>o.PutRawData(v)</E_WRITE>
+    </FIELD>
+	
+  </DEFINE>
+
+</doc>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>gui</AssemblyName>
+    <StartupObject>DeepTools.GUI.Program</StartupObject>
+    <Version>1.2.11</Version>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.DeepTools.GUI</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="CPJAnalyzer.cs" />
+    <Compile Remove="ImageAnalyzer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\DeepCore.GUI\DeepCore.GUI.csproj" />
+    <ProjectReference Include="..\DeepCore.GUI.Display\DeepCore.GUI.Display.csproj" />
+    <ProjectReference Include="..\DeepTools.Voxel\DeepTools.Voxel.csproj" />
+  </ItemGroup>
+</Project>

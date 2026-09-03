@@ -1,0 +1,4 @@
+8d1fbb97bdb6b5b9d445cd8b6d716b2f : \DeepCore.Event.Debug.csproj
+68850260c3a01f05e97ce3e2d3a60276 : \EventDebugHost.cs
+8235e2de1efd761307d99a87b33c645b : \EventDebugProtocol.cs
+ef872599f2cd466e86e4e096ff1f253c : \EventDebugSlave.cs

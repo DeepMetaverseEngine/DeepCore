@@ -1,0 +1,42 @@
+<doc>
+// 警告: 自动生成的代码，不要编辑此文件
+using DeepCore;
+using DeepCore.IO;
+using System;
+using System.Collections.Generic;
+using DeepMetaGame.Data.FuncData;
+using DeepMetaGame.Data.Template;
+
+namespace DeepMetaGame.Data.FuncData
+{
+	public partial class FillCartridges
+	{
+		/// <CARD_NAME/> ///
+		[FillTemplate(<CARD_ID/>)]
+		public void Fill_Card_<CARD_ID/>(ICardRuntime runtime, CardTemplate card, int level, TCartridgesMeta cartridges)
+		{
+			<AFFECTS>{// <TEMP_NAME/>
+			if (cartridges.TryGetTemplateData&lt;<TEMP_TYPE/>&gt;(<TEMP_ID/>, out var temp_<TEMP_ID/>))
+            {<FIELDS>
+				//<FIELD_DESC/>
+				temp_<TEMP_ID/><FIELD_UML_PATH/><FIELD_OP/><FIELD_VALUE/></FIELDS>
+            }
+			}</AFFECTS>
+		}
+		/// <CARD_NAME/> ///
+		[FillTemplate(<CARD_ID/>)]
+		public void Copy_Card_<CARD_ID/>(object src, object dst)
+		{
+			<AFFECTS>{// <TEMP_NAME/>
+			if (src is <TEMP_TYPE/> srcT &amp;&amp; dst is <TEMP_TYPE/> dstT &amp;&amp; srcT.ID == <TEMP_ID/> &amp;&amp; dstT.ID == <TEMP_ID/>)
+			{<FIELDS>
+				//<FIELD_DESC/>
+				dstT<FIELD_UML_PATH/> = srcT<FIELD_UML_PATH/>;</FIELDS>
+			}
+			}</AFFECTS>
+		}
+	}
+	
+}
+// 警告: 自动生成的代码，不要编辑此文件
+</doc>

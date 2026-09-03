@@ -1,0 +1,17 @@
+79a79ed284f89c4b9de4032fd308b902 : \DeepMetaGame.ZoneServer.csproj
+4028a4e72670e8076b89c3b86ad3502d : \Launcher.cs
+ccd860bb663ce64ab2d56af0460b4a8e : \Program.cs
+c67c407d5527ca9fd8d9581ee3a4e28d : \Bot\BotConsole.cs
+9925aa01e3710871cb48ad42429f60d5 : \Bot\BotPlayer.cs
+740251eff07967ed5cc9e36e9c7596b7 : \Bot\BotRunner.cs
+3205308073775cace1784b64d44321cb : \Bot\BotRunner.Main.cs
+d4f259e9559b630cdb2d8915678b4f3e : \Client\BattleClient.cs
+a1570d983c6ae3da0a511412f9e5c3b7 : \Client\BattleClientDirect.cs
+057ee37e36e2d062a67eb2fd9b71ef2e : \Client\BattleClientProxy.cs
+a59e036bfc866ac613bdf1373a96b233 : \Client\NetTestClient.cs
+1786d00c906257c15952216412e5ab44 : \Message\DataB2R.cs
+ff87f9f679ee8fccf9cde3e2e1787d43 : \Message\DataC2B.cs
+5d9a2d89d2adcd5ab3e0fbfb5d33040d : \Message\DataR2B.cs
+c4c12f17394cc7fdac3c1ee952b0b5e5 : \Message\DataTest.cs
+f29a5ad58010e3fa487b60b175632689 : \Server\ServerNode.cs
+3415b3e0ee33527745cfe98359527c57 : \Server\ServerNode.Main.cs

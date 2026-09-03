@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <!-- #################################################################################### -->
+  <define name="ConnDefine" param1="Name" param2="Host" param3="Port" param4="Listen">
+    <ConnectServer>
+      <ServiceName>#{Name}</ServiceName>
+      <ServiceType>ConnectServer</ServiceType>
+      <Config>
+        <Name>#{Name}</Name>
+        <Host>#{Host}</Host>
+        <HostPort>#{Port}</HostPort>
+        <Port>#{Listen}</Port>
+        <KeepAlive>true</KeepAlive>
+        <KeepAliveInterval>30000</KeepAliveInterval>
+        <RecvBufferSize>16384</RecvBufferSize>
+        <SendBufferSize>16384</SendBufferSize>
+        <MaxConnections>3000</MaxConnections>
+        <NetCodec>TLClient.Serializer</NetCodec>
+      </Config>
+    </ConnectServer>
+  </define>
+  <!-- #################################################################################### -->
+  <GlobalConfig>
+    <RealmID>22</RealmID>
+    <!-- Test -->
+    <EnableRpcStatistics>true</EnableRpcStatistics>
+    <EnableAllocStatistics>true</EnableAllocStatistics>
+    <EnablePoolStatistics>false</EnablePoolStatistics>
+    <EnableEventStatistics>true</EnableEventStatistics>
+    <EnableLogicStatistics>true</EnableLogicStatistics>
+    <EnableMemoryPool>false</EnableMemoryPool>
+    <EnableMemoryPoolMax>10240</EnableMemoryPoolMax>
+    <EnableLuaLogger>false</EnableLuaLogger>
+    <ORM_TEST>false</ORM_TEST>
+    <!-- -GameData- -->
+    <KickOnError>true</KickOnError>
+    <RPGServerBattleManager>TLServer.Common.TLServerBattleManager</RPGServerBattleManager>
+    <RPGServerManager>TLServer.Common.TLServerManager</RPGServerManager>
+    <RPGServerPersistenceManager>TLServer.Common.TLServerPersistenceManager</RPGServerPersistenceManager>
+    <RPGServerTemplateManager>TLServer.Common.TLServerTemplateManager</RPGServerTemplateManager>
+    <ZoneDataFactory>TLBattle.Server.TLServerDataFactory</ZoneDataFactory>
+    <InstanceZoneFactory>TLBattle.Server.TLServerZoneFactory</InstanceZoneFactory>
+    <ZoneServerFactory>TLBattle.Host.TLZoneServerNodeFactory</ZoneServerFactory>
+    <GMTUrl>http://office.1gamesh.com:31000</GMTUrl>
+    <ServerListUrl>http://office.1gamesh.com:31000/api/server/server_list</ServerListUrl>
+    <BattleDataRoot>../data/GameEditors/GameEditor/data/</BattleDataRoot>
+    <ServerDataRoot>../data/ServerData/</ServerDataRoot>
+    <RedisORMFactory>192.168.1.103,allowAdmin=true,syncTimeout=3000,responseTimeout=3000,connectTimeout=3000</RedisORMFactory>
+    <MySQLFactory>server=192.168.1.201;user=tl;database=gmt2;port=3306;password=onegame;SslMode=none;Convert Zero Datetime=True;Allow User Variables=True</MySQLFactory>
+    <RedisDababase>5</RedisDababase>
+    <RPGServerManager.Config>
+      <!-- -Connect同步状态到Gate- -->
+      <timer_sec_SyncConnectToGateNotify>5</timer_sec_SyncConnectToGateNotify>  
+      <!-- -Gate处理等待队列- -->
+      <timer_sec_GateUpdateQueue>10</timer_sec_GateUpdateQueue>
+      <!-- -Area同步状态到AreaManager - -->
+      <timer_sec_AreaStateNotify>15</timer_sec_AreaStateNotify>
+      <!-- -社交刷新定时器- -->
+      <timer_sec_OnPollingSocialService>300</timer_sec_OnPollingSocialService>
+      <!-- -公会mapping数据清理定时器- -->
+      <timer_hour_KeepGuildRoleData>24</timer_hour_KeepGuildRoleData>
+      <!-- -角色刷新定时器- -->
+      <timer_sec_OnPollingRoleModule>5</timer_sec_OnPollingRoleModule>
+      <!-- -玩家断线后，Session保持时间- -->
+      <timer_sec_SessionKeepTimeout>30</timer_sec_SessionKeepTimeout>
+      <!-- -场景单位公共数据刷新- -->
+      <timer_sec_OnPollingAreaZoneNode>15</timer_sec_OnPollingAreaZoneNode>
+      <!-- -副本无人后多久清理副本- -->
+      <timer_sec_ZoneKeepPlayerTimeout>30</timer_sec_ZoneKeepPlayerTimeout>
+      <!-- -场景Close后清理场景时间- -->
+      <timer_sec_DelayDestoryTime>30</timer_sec_DelayDestoryTime>
+      <!-- -CMD轮询时间- -->
+      <timer_sec_OnPollingCMDEvt>10</timer_sec_OnPollingCMDEvt>
+      <!-- -定期储存数据10分钟- -->
+      <timer_minute_SaveDataTimer>5</timer_minute_SaveDataTimer>
+    </RPGServerManager.Config>
+  </GlobalConfig>
+  <!-- #################################################################################### -->
+  <NameServer>
+    <!-- # 根节点配置，负责管理所有的ServiceNode，全局唯一节点 -->
+    <!-- SNameServerConfig -->
+    <RpcConfig>
+      <LocalEndPoint>NameServer</LocalEndPoint>
+      <NetworkTimeoutMS>15000</NetworkTimeoutMS>
+      <RpcCodec>TLServer.ServerCodec</RpcCodec>
+    </RpcConfig>
+  </NameServer>
+  <!-- #################################################################################### -->
+  <ServiceNodes>
+    <!-- # 所有服务节点配置，服务节点为具体服务的容器，一般台物理机开一个服务节点 -->
+    <!-- ================================================================================== -->
+    <node_01>
+      <RpcConfig>
+        <LocalNodeName>node_01</LocalNodeName>
+        <LocalEndPoint>node_01</LocalEndPoint>
+        <NameServerEndPoint>NameServer</NameServerEndPoint>
+        <RequestTickTimeMS>5000</RequestTickTimeMS>
+        <NetworkTimeoutMS>30000</NetworkTimeoutMS>
+        <DefaultTaskExecuteTimeout>60000</DefaultTaskExecuteTimeout>
+        <RpcCodec>TLServer.ServerCodec</RpcCodec>
+        <AcceptTypeMappings>
+          <!-- 当前服务节点可创建的服务类型 -->
+          <GateServer>DeepMMO.Server.Gate.GateServer</GateServer>
+          <AreaManager>DeepMMO.Server.AreaManager.AreaManager</AreaManager>
+          <ConnectServer>DeepMMO.Server.Connect.ConnectServer</ConnectServer>
+          <SessionService>DeepMMO.Server.Connect.SessionService</SessionService>
+          <AdminServer>ThreeLives.Service.Admin.AdminServer</AdminServer>
+          <PayServer>ThreeLives.Service.Pay.PayServer</PayServer>
+          <AreaService>TLServer.Area.TLAreaService</AreaService>
+          <RankingService>TLServer.Ranking.TLRankingService</RankingService>
+          <AuctionService>TLServer.Auction.TLAuctionService</AuctionService>
+          <SocialService>TLServer.Social.TLSocialService</SocialService>
+          <ShopService>TLServer.Shop.TLShopService</ShopService>
+          <GuildService>TLServer.Guild.TLGuildService</GuildService>
+          <ChatService>TLServer.Chat.TLChatService</ChatService>
+          <ChannelService>TLServer.Chat.TLChannelService</ChannelService>
+          <TeamService>TLServer.Team.TLTeamService</TeamService>
+          <LogicService>TLServer.Logic.TLLogicService</LogicService>
+	  	  <MasterRaceService>TLServer.MasterRace.TLMasterRaceService</MasterRaceService>
+        </AcceptTypeMappings>
+      </RpcConfig>
+      <!-- -启动服务- -->
+      <StartService>
+        <!-- GateNode，全区，单点 -->
+        <GateServer>
+          <ServiceName>GateServer</ServiceName>
+          <ServiceType>GateServer</ServiceType>
+          <Config>
+            <Name>GateServer</Name>
+            <Port>19001</Port>
+            <KeepAlive>true</KeepAlive>
+            <KeepAliveInterval>30000</KeepAliveInterval>
+            <RecvBufferSize>16384</RecvBufferSize>
+            <SendBufferSize>16384</SendBufferSize>
+            <MaxConnections>3000</MaxConnections>
+            <NetCodec>TLClient.Serializer</NetCodec>
+          </Config>
+        </GateServer>
+        <!-- AreaManager，全区，单点 -->
+        <AreaManager>
+          <ServiceName>AreaManager</ServiceName>
+          <ServiceType>AreaManager</ServiceType>
+          <Config></Config>
+        </AreaManager>
+        <!-- Area负载，全区，可扩展 -->
+        <AreaService>
+          <ServiceName>Area:1-1</ServiceName>
+          <ServiceType>AreaService</ServiceType>
+          <Config></Config>
+        </AreaService>
+        <!-- Ranking负载，全区，可扩展 -->
+        <RankingService>
+          <ServiceName>RankingService:0</ServiceName>
+          <ServiceType>RankingService</ServiceType>
+          <Config>
+            <IndexId>0</IndexId>
+            <Quantity>1</Quantity>
+          </Config>
+        </RankingService>
+        <TeamService>
+          <ServiceName>TeamCenterService</ServiceName>
+          <ServiceType>TeamService</ServiceType>
+          <Config></Config>
+        </TeamService>
+        <!-- 公共服务，全区，可扩展 -->
+        <SocialService>
+          <ServiceName>SocialService</ServiceName>
+          <ServiceType>SocialService</ServiceType>
+          <Config></Config>
+        </SocialService>
+        <GuildService>
+          <ServiceName>GuildService</ServiceName>
+          <ServiceType>GuildService</ServiceType>
+          <Config>
+            <IndexId>0</IndexId>
+            <Quantity>1</Quantity>
+          </Config>
+        </GuildService>
+        <ChatService>
+          <ServiceName>ChatService</ServiceName>
+          <ServiceType>ChatService</ServiceType>
+          <Config></Config>
+        </ChatService>
+        <ShopService>
+          <ServiceName>ShopService</ServiceName>
+          <ServiceType>ShopService</ServiceType>
+          <Config></Config>
+        </ShopService>
+	    <!-- -MasterRaceService- -->
+        <MasterRaceService>
+          <ServiceName>MasterRaceService</ServiceName>
+          <ServiceType>MasterRaceService</ServiceType>
+          <Config></Config>
+        </MasterRaceService>
+        <AdminServer>
+          <ServiceName>AdminServer</ServiceName>
+          <ServiceType>AdminServer</ServiceType>
+          <Config>
+            <HTTPListen>http://+:18088/</HTTPListen>
+            <APIKey>ux4cHMNztECoSKKu</APIKey>
+          </Config>
+        </AdminServer>
+        <PayServer>
+          <ServiceName>PayServer</ServiceName>
+          <ServiceType>PayServer</ServiceType>
+          <Config>
+            <HTTPListen>http://+:19088/</HTTPListen>
+            <APIKey>ux4cHMNztECoSKKu</APIKey>
+          </Config>
+        </PayServer>
+        <!-- 逻辑分组 -->
+        <define_call name="ConnDefine" param1="Conn01" param2="127.0.0.1" param3="18001" param4="18001" />
+        <define_call name="ConnDefine" param1="Conn02" param2="127.0.0.1" param3="18002" param4="18002" />
+        <define_call name="ConnDefine" param1="Conn03" param2="127.0.0.1" param3="18003" param4="18003" />
+        <define_call name="ConnDefine" param1="Conn04" param2="127.0.0.1" param3="18004" param4="18004" />
+      </StartService>
+    </node_01>
+	<!-- ================================================================================== -->
+    <node_02>
+      <RpcConfig>
+        <LocalNodeName>node_02</LocalNodeName>
+        <LocalEndPoint>node_02</LocalEndPoint>
+        <NameServerEndPoint>NameServer</NameServerEndPoint>
+        <RequestTickTimeMS>5000</RequestTickTimeMS>
+        <NetworkTimeoutMS>30000</NetworkTimeoutMS>
+        <DefaultTaskExecuteTimeout>60000</DefaultTaskExecuteTimeout>
+        <RpcCodec>TLServer.ServerCodec</RpcCodec>
+        <AcceptTypeMappings>
+          <!-- 当前服务节点可创建的服务类型 -->
+          <ConnectServer>DeepMMO.Server.Connect.ConnectServer</ConnectServer>
+          <SessionService>DeepMMO.Server.Connect.SessionService</SessionService>
+          <AreaService>TLServer.Area.TLAreaService</AreaService>
+          <RankingService>TLServer.Ranking.TLRankingService</RankingService>
+          <AuctionService>TLServer.Auction.TLAuctionService</AuctionService>
+          <SocialService>TLServer.Social.TLSocialService</SocialService>
+          <ShopService>TLServer.Shop.TLShopService</ShopService>
+          <GuildService>TLServer.Guild.TLGuildService</GuildService>
+          <ChatService>TLServer.Chat.TLChatService</ChatService>
+          <ChannelService>TLServer.Chat.TLChannelService</ChannelService>
+          <TeamService>TLServer.Team.TLTeamService</TeamService>
+          <LogicService>TLServer.Logic.TLLogicService</LogicService>
+        </AcceptTypeMappings>
+      </RpcConfig>
+      <!-- -启动服务- -->
+      <StartService>
+        <!-- Area负载，全区，可扩展 -->
+        <AreaService>
+          <ServiceName>Area:2-1</ServiceName>
+          <ServiceType>AreaService</ServiceType>
+          <Config></Config>
+        </AreaService>
+        <!-- 逻辑分组 -->
+        <define_call name="ConnDefine" param1="Conn11" param2="127.0.0.1" param3="18011" param4="18011" />
+        <define_call name="ConnDefine" param1="Conn12" param2="127.0.0.1" param3="18012" param4="18012" />
+        <define_call name="ConnDefine" param1="Conn13" param2="127.0.0.1" param3="18013" param4="18013" />
+        <define_call name="ConnDefine" param1="Conn14" param2="127.0.0.1" param3="18014" param4="18014" />
+      </StartService>
+    </node_02>
+    <!-- ================================================================================== -->
+  </ServiceNodes>
+  <!-- #################################################################################### -->
+</doc>

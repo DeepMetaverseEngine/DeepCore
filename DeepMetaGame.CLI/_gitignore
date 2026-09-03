@@ -1,0 +1,9 @@
+.idea/
+*.user
+/.svn
+/.vs
+.svn
+.vs
+bin
+obj
+/data.bak

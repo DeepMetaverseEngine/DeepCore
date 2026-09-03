@@ -1,0 +1,201 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <Version>1.2.15</Version>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="EventAdapter\**" />
+    <Compile Remove="deepfrozen\**" />
+    <Compile Remove="solidity\template\**" />
+    <Compile Remove="Workspace\dependant\**" />
+    <Compile Remove="TestChains\**" />
+    <EmbeddedResource Remove="EventAdapter\**" />
+    <EmbeddedResource Remove="deepfrozen\**" />
+    <EmbeddedResource Remove="solidity\template\**" />
+    <EmbeddedResource Remove="Workspace\dependant\**" />
+    <EmbeddedResource Remove="TestChains\**" />
+    <None Remove="EventAdapter\**" />
+    <None Remove="deepfrozen\**" />
+    <None Remove="solidity\template\**" />
+    <None Remove="Workspace\dependant\**" />
+    <None Remove="TestChains\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ABI\Erc20.abi.json" />
+    <None Remove="ABI\Erc721.abi.json" />
+    <None Remove="TestDeputy.txt" />
+    <EmbeddedResource Include="ABI\Erc20.abi.json" />
+    <EmbeddedResource Include="ABI\Erc721.abi.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".\template\contracts\**\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="solidity\template\contracts\nameserver\accessControlRef\AccessControlRefEvent.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControlRef\AccessControlRefInterface.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControlRef\AccessControlRefLayout.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControlRef\AccessControlRefLogic.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControlRef\AccessControlRefStorage.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControlRef\AccessControlRefType.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControl\AccessControlEvent.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControl\AccessControlInterface.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControl\AccessControlLayout.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControl\AccessControlLogic.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControl\AccessControlStorage.sol" />
+    <Content Include="solidity\template\contracts\nameserver\accessControl\AccessControlType.sol" />
+    <Content Include="solidity\template\contracts\nameserver\context\ContextEvent.sol" />
+    <Content Include="solidity\template\contracts\nameserver\context\ContextInterface.sol" />
+    <Content Include="solidity\template\contracts\nameserver\context\ContextLayout.sol" />
+    <Content Include="solidity\template\contracts\nameserver\context\ContextLogic.sol" />
+    <Content Include="solidity\template\contracts\nameserver\context\ContextStorage.sol" />
+    <Content Include="solidity\template\contracts\nameserver\context\ContextType.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyCenter\DeputyCenterEvent.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyCenter\DeputyCenterInterface.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyCenter\DeputyCenterLayout.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyCenter\DeputyCenterLogic.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyCenter\DeputyCenterStorage.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyCenter\DeputyCenterType.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyRef\DeputyRefEvent.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyRef\DeputyRefInterface.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyRef\DeputyRefLayout.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyRef\DeputyRefLogic.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyRef\DeputyRefStorage.sol" />
+    <Content Include="solidity\template\contracts\nameserver\deputyRef\DeputyRefType.sol" />
+    <Content Include="solidity\template\contracts\nameserver\helperLibrary\Base64Library.sol" />
+    <Content Include="solidity\template\contracts\nameserver\helperLibrary\BytesLibrary.sol" />
+    <Content Include="solidity\template\contracts\nameserver\helperLibrary\ConstantLibrary.sol" />
+    <Content Include="solidity\template\contracts\nameserver\helperLibrary\MerkleProofLibrary.sol" />
+    <Content Include="solidity\template\contracts\nameserver\helperLibrary\StringsLibrary.sol" />
+    <Content Include="solidity\template\contracts\nameserver\helperLibrary\vrfLibrary\EllipticCurve.sol" />
+    <Content Include="solidity\template\contracts\nameserver\helperLibrary\vrfLibrary\FastEcMul.sol" />
+    <Content Include="solidity\template\contracts\nameserver\helperLibrary\vrfLibrary\readme" />
+    <Content Include="solidity\template\contracts\nameserver\helperLibrary\vrfLibrary\VRF.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameServiceRef\NameServiceRefEvent.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameServiceRef\NameServiceRefInterface.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameServiceRef\NameServiceRefLayout.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameServiceRef\NameServiceRefLogic.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameServiceRef\NameServiceRefStorage.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameServiceRef\NameServiceRefType.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameService\NameServiceEvent.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameService\NameServiceInterface.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameService\NameServiceLayout.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameService\NameServiceLogic.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameService\NameServiceStorage.sol" />
+    <Content Include="solidity\template\contracts\nameserver\nameService\NameServiceType.sol" />
+    <Content Include="solidity\template\contracts\nameserver\ownable\OwnableEvent.sol" />
+    <Content Include="solidity\template\contracts\nameserver\ownable\OwnableInterface.sol" />
+    <Content Include="solidity\template\contracts\nameserver\ownable\OwnableLayout.sol" />
+    <Content Include="solidity\template\contracts\nameserver\ownable\OwnableLogic.sol" />
+    <Content Include="solidity\template\contracts\nameserver\ownable\OwnableStorage.sol" />
+    <Content Include="solidity\template\contracts\nameserver\ownable\OwnableType.sol" />
+    <Content Include="solidity\template\contracts\nameserver\preclude\Export.sol" />
+    <Content Include="solidity\template\contracts\nameserver\preclude\Preclude.sol" />
+    <Content Include="solidity\template\contracts\nameserver\proxy\Base.sol" />
+    <Content Include="solidity\template\contracts\nameserver\proxy\Delegate.sol" />
+    <Content Include="solidity\template\contracts\nameserver\proxy\EnhancedMap.sol" />
+    <Content Include="solidity\template\contracts\nameserver\proxy\EnhancedUniqueIndexMap.sol" />
+    <Content Include="solidity\template\contracts\nameserver\proxy\OwnerProxy.sol" />
+    <Content Include="solidity\template\contracts\nameserver\proxy\Proxy.sol" />
+    <Content Include="solidity\template\contracts\nameserver\proxy\SlotData.sol" />
+    <Content Include="solidity\template\contracts\nameserver\reentrancy\ReentrancyEvent.sol" />
+    <Content Include="solidity\template\contracts\nameserver\reentrancy\ReentrancyInterface.sol" />
+    <Content Include="solidity\template\contracts\nameserver\reentrancy\ReentrancyLayout.sol" />
+    <Content Include="solidity\template\contracts\nameserver\reentrancy\ReentrancyLogic.sol" />
+    <Content Include="solidity\template\contracts\nameserver\reentrancy\ReentrancyStorage.sol" />
+    <Content Include="solidity\template\contracts\nameserver\reentrancy\ReentrancyType.sol" />
+    <Content Include="solidity\template\contracts\nameserver\util\AggregateCall.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultEvent.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultInterface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultInterface1.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultInterface2.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultInterface3.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultInterface4.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultLayout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultLogic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultLogic1.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultLogic2.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultLogic3.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultLogic4.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultStorage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\assetVault\AssetVaultType.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155improved\HERC1155IMEvent.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155improved\HERC1155IMInterface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155improved\HERC1155IMLayout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155improved\HERC1155IMLogic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155improved\HERC1155IMStorage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155improved\HERC1155IMType.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155\HERC1155Event.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155\HERC1155Interface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155\HERC1155Layout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155\HERC1155Logic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155\HERC1155ReceiverInterface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc1155\HERC1155Storage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc165\HERC165Interface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc165\HERC165Layout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc165\HERC165Logic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc165\HERC165Storage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc165\HERC165Type.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20improved\HERC20IMEvent.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20improved\HERC20IMInterface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20improved\HERC20IMLayout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20improved\HERC20IMLogic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20improved\HERC20IMStorage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20improved\HERC20IMType.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20\HERC20Event.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20\HERC20Interface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20\HERC20Layout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20\HERC20Logic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc20\HERC20Storage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610improved\HERC4610IMEvent.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610improved\HERC4610IMInterface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610improved\HERC4610IMLayout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610improved\HERC4610IMLogic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610improved\HERC4610IMStorage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610improved\HERC4610IMType.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610\HERC4610Event.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610\HERC4610Interface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610\HERC4610Layout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610\HERC4610Logic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc4610\HERC4610Storage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721improved\HERC721IMEvent.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721improved\HERC721IMInterface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721improved\HERC721IMLayout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721improved\HERC721IMLogic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721improved\HERC721IMStorage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721improved\HERC721IMType.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721\HERC721Event.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721\HERC721Interface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721\HERC721Layout.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721\HERC721Logic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721\HERC721ReceiverInterface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\erc721\HERC721Storage.sol" />
+    <Content Include="solidity\template\contracts\opentoken\holders\HERC1155HolderLogic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\holders\HERC721HolderLogic.sol" />
+    <Content Include="solidity\template\contracts\opentoken\token\erc20Normal\ERC20Normal.sol" />
+    <Content Include="solidity\template\contracts\opentoken\token\erc20Normal\ERC20NormalInterface.sol" />
+    <Content Include="solidity\template\contracts\opentoken\token\erc721Normal\ERC721Normal.sol" />
+    <Content Include="solidity\template\contracts\opentoken\token\erc721Normal\ERC721NormalInterface.sol" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Nethereum.StandardNonFungibleTokenERC721" Version="4.13.0" />
+    <PackageReference Include="Nethereum.StandardTokenEIP20" Version="4.13.0" />
+    <PackageReference Include="Nethereum.Web3" Version="4.13.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DeepCore\DeepCore\DeepCore.csproj" />
+    <ProjectReference Include="..\..\DeepCore\DeepCrystal\DeepCrystal.csproj" />
+    <ProjectReference Include="..\DeepFrozen.Mysql\DeepFrozen.MySQL.csproj" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="rem call template\build.bat" />
+  </Target>
+</Project>

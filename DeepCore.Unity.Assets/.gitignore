@@ -1,0 +1,12 @@
+.idea/
+*.user
+/.svn
+/.vs
+/data.bak
+/Assets/Library
+bin
+Library
+Logs
+obj
+Temp
+UserSettings

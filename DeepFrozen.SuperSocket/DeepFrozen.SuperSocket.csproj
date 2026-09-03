@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <Version>1.2.26</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="RPC\**" />
+    <Compile Remove="SuperSocket.NetStandard\SuperSocket.Dlr\**" />
+    <Compile Remove="SuperSocket.NetStandard\SuperSocket.ProtoBase\**" />
+    <EmbeddedResource Remove="RPC\**" />
+    <EmbeddedResource Remove="SuperSocket.NetStandard\SuperSocket.Dlr\**" />
+    <EmbeddedResource Remove="SuperSocket.NetStandard\SuperSocket.ProtoBase\**" />
+    <None Remove="RPC\**" />
+    <None Remove="SuperSocket.NetStandard\SuperSocket.Dlr\**" />
+    <None Remove="SuperSocket.NetStandard\SuperSocket.ProtoBase\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="SuperSocket.NetStandard\.gitignore" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Remoting" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <PackageReference Include="Microsoft.Extensions.Configuration">
+      <Version>10.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder">
+      <Version>10.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
+      <Version>10.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Options">
+      <Version>10.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions">
+      <Version>10.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="10.0.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="3.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Net\DeepCore.Net.csproj" />
+  </ItemGroup>
+</Project>

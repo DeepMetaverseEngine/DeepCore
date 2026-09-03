@@ -1,0 +1,118 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FDAD284E-ED17-4F70-AA0C-0C321916AAD1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>slua_standalone</RootNamespace>
+    <AssemblyName>slua-standalone</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <Version xmlns="">1.0.8</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SLUA_STANDALONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\src\BytesHelper.cs">
+      <Link>BytesHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\ByteArray.cs">
+      <Link>ByteArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\Coroutine.cs">
+      <Link>Coroutine.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\Helper.cs">
+      <Link>Helper.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\Logger.cs">
+      <Link>Logger.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\Lua3rdDLL.cs">
+      <Link>Lua3rdDLL.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\Lua3rdMeta.cs">
+      <Link>Lua3rdMeta.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaArray.cs">
+      <Link>LuaArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaByteArray.cs">
+      <Link>LuaByteArray.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaDLL.cs">
+      <Link>LuaDLL.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaDLLWrapper.cs">
+      <Link>LuaDLLWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaObject.cs">
+      <Link>LuaObject.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaObject_basetype.cs">
+      <Link>LuaObject_basetype.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaObject_overload.cs">
+      <Link>LuaObject_overload.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaSocketMini.cs">
+      <Link>LuaSocketMini.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaState.cs">
+      <Link>LuaState.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaSvr.cs">
+      <Link>LuaSvr.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaSvrGameObject.cs">
+      <Link>LuaSvrGameObject.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaValueType.cs">
+      <Link>LuaValueType.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\LuaVarObject.cs">
+      <Link>LuaVarObject.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\ObjectCache.cs">
+      <Link>ObjectCache.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\SLuaSetting.cs">
+      <Link>SLuaSetting.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\Timer.cs">
+      <Link>Timer.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Managed\WeakDictionary.cs">
+      <Link>WeakDictionary.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

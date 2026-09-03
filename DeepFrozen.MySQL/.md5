@@ -1,0 +1,6 @@
+1644de618bbbc52669637402f55c68a1 : \DeepFrozen.MySQL.csproj
+b3b4a5a1beccdb266f2f0f958467e553 : \MySQLConnectPool.cs
+493742166f4b0f5c8ac18a1f78eabffa : \MySQLDriver.cs
+ad907bae1ccc442a22f8ede41ba5d331 : \MySQLFactory.cs
+69efe78b7a8acdf5560df72561edffcf : \MySQLTableInfo.cs
+ab08ce5c0b6e4e50f936068b8e9f1d60 : \Service\TransferService.cs

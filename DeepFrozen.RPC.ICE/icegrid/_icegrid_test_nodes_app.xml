@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<icegrid>
+  <application name="ThreeLivesRealm">
+    <!-- #################################################################################### -->
+    <properties id="mx">
+      <property name="IceMX.Metrics.Debug.GroupBy" value="id"/>
+      <property name="IceMX.Metrics.Debug.Disabled" value="1"/>
+      <property name="IceMX.Metrics.ByParent.GroupBy" value="parent"/>
+      <property name="IceMX.Metrics.ByParent.Disabled" value="1"/>
+    </properties>
+    <!-- #################################################################################### -->
+    <service-template id="NameServer">
+      <parameter name="name"/>
+      <service name="${name}" entry="tlserver_ice.dll:TLNameServerBox">
+        <adapter name="${name}" endpoints="default" id="${name}" server-lifetime="false">
+          <object identity="${name}" type="::DeepFrozen::NameServer"/>
+          <object identity="${name}Console" type="::DeepFrozen::NameServerConsole"/>
+        </adapter>
+        <properties>
+          <properties refid="mx"/>
+        </properties>
+      </service>
+    </service-template>
+    <!-- ================================================================================== -->
+    <service-template id="ServiceNode">
+      <parameter name="name"/>
+      <service name="${name}" entry="tlserver_ice.dll:TLServiceNodeBox">
+        <adapter name="${name}" endpoints="default" id="${name}" server-lifetime="false">
+          <object identity="${name}" type="::DeepFrozen::ServiceNode"/>
+        </adapter>
+        <properties>
+          <properties refid="mx"/>
+        </properties>
+      </service>
+    </service-template>
+    <!-- #################################################################################### -->
+    <node name="node_01">
+      <icebox id="IceBox-NameServer" activation="always" exe="dotnet.exe">
+        <option>iceboxnet.dll</option>
+        <properties>
+          <properties refid="mx"/>
+          <property name="IceBox.Trace.ServiceObserver" value="1"/>
+        </properties>
+        <service-instance template="NameServer" name="NameServer">
+          <properties>
+            <property name="rpc_config" value="./_icegrid_test_nodes_rpc.xml"/>
+          </properties>
+        </service-instance>
+        <env>LANG=en</env>
+      </icebox>
+      <icebox id="IceBox-Node01" activation="always" exe="dotnet.exe">
+        <option>iceboxnet.dll</option>
+        <properties>
+          <properties refid="mx"/>
+          <property name="IceBox.Trace.ServiceObserver" value="1"/>
+        </properties>
+        <service-instance template="ServiceNode" name="node_01">
+          <properties>
+            <property name="rpc_config" value="./_icegrid_test_nodes_rpc.xml"/>
+          </properties>
+        </service-instance>
+        <env>LANG=en</env>
+      </icebox>
+    </node>
+    <!-- #################################################################################### -->
+	<node name="node_02">
+      <icebox id="IceBox-Node02" activation="always" exe="dotnet.exe">
+        <option>iceboxnet.dll</option>
+        <properties>
+          <properties refid="mx"/>
+          <property name="IceBox.Trace.ServiceObserver" value="1"/>
+        </properties>
+        <service-instance template="ServiceNode" name="node_02">
+          <properties>
+            <property name="rpc_config" value="./_icegrid_test_nodes_rpc.xml"/>
+          </properties>
+        </service-instance>
+        <env>LANG=en</env>
+      </icebox>
+    </node>
+    <!-- #################################################################################### -->
+  </application>
+</icegrid>

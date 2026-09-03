@@ -1,0 +1,20 @@
+ <doc><XCONFIG>
+  <array_L>[</array_L>
+  <array_R>]</array_R>
+  <array_SP>,</array_SP>
+  <array_start_index>1</array_start_index>
+  <combine_EQ>:</combine_EQ>
+  <combine_L>{</combine_L>
+  <combine_R>}</combine_R>
+  <combine_SP>,</combine_SP>
+  <combine_TL>"</combine_TL>
+  <combine_TR>"</combine_TR>
+  <lang_comment>lang</lang_comment>
+  <primary_key_comment>_key_</primary_key_comment>
+  <row_head_index>1</row_head_index>
+  <row_output_start_index>0</row_output_start_index>
+</XCONFIG>{
+"Data":{<DATA_ROW><ROW SPLIT=',&#13;'><DATA_KEY><KEY_TEXT/>:</DATA_KEY>{<CELL SPLIT=','>"<HEAD_TEXT/>":<TEXT/></CELL>}</ROW>
+</DATA_ROW>
+   }
+}</doc>

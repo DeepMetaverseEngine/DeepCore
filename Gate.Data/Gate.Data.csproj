@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>1.2.17</Version>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Data.Area.cs" />
+    <Compile Remove="Data.Mail.cs" />
+    <Compile Remove="Data.Role.cs" />
+    <Compile Remove="Data\Data.Channel.cs" />
+    <Compile Remove="Data\Data.World.cs" />
+    <Compile Remove="Protocol.Area.cs" />
+    <Compile Remove="Protocol.Connector.cs" />
+    <Compile Remove="Protocol.Gate.cs" />
+    <Compile Remove="Protocol.Logic.cs" />
+    <Compile Remove="Protocol.Mail.cs" />
+    <Compile Remove="Protocol.Session.cs" />
+    <Compile Remove="Protocol\Protocol.Channel.cs" />
+    <Compile Remove="Protocol\Protocol.World.cs" />
+    <Compile Remove="Server\Protocol\Protocol.World.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Sample\SampleTable.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sample\SampleTable.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Geometry\DeepCore.Geometry.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+</Project>

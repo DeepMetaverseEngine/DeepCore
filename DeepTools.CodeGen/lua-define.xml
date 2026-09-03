@@ -1,0 +1,158 @@
+
+<doc>
+
+<DEFINE>
+  
+    <INCLUDE_CLASS>DeepCore.IO.ISerializable</INCLUDE_CLASS>
+    <EXCLUDE_CLASS>DeepCore.IO.IExternalizable</EXCLUDE_CLASS>
+  
+    <FIELD_DEPEND_ON>
+      <BEGIN>if <DEPEND_ON OP=" &amp;&amp; ">data:<D_FIELD/>()==<D_EXPECT ToLower="true"/></DEPEND_ON> then</BEGIN>
+      <END>end</END>
+    </FIELD_DEPEND_ON>
+  
+    <FIELD FieldType="System.Byte">
+      <READ Trim="True">        data.<F_NAME/> = input:GetU8()</READ>
+      <WRITE Trim="True">        output:PutU8(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetU8</E_READ>
+      <E_WRITE>output.PutU8</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.SByte">
+      <READ Trim="True">        data.<F_NAME/> = input:GetS8()</READ>
+      <WRITE Trim="True">        output:PutS8(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetS8</E_READ>
+      <E_WRITE>output.PutS8</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Int16">
+      <READ Trim="True">        data.<F_NAME/> = input:GetS16()</READ>
+      <WRITE Trim="True">        output:PutS16(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetS16</E_READ>
+      <E_WRITE>output.PutS16</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.UInt16">
+      <READ Trim="True">        data.<F_NAME/> = input:GetU16()</READ>
+      <WRITE Trim="True">        output:PutU16(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetU16</E_READ>
+      <E_WRITE>output.PutU16</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Int32">
+      <READ Trim="True">        data.<F_NAME/> = input:GetS32()</READ>
+      <WRITE Trim="True">        output:PutS32(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetS32</E_READ>
+      <E_WRITE>output.PutS32</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.UInt32">
+      <READ Trim="True">        data.<F_NAME/> = input:GetU32()</READ>
+      <WRITE Trim="True">        output:PutU32(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetU32</E_READ>
+      <E_WRITE>output.PutU32</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Int64">
+      <READ Trim="True">        data.<F_NAME/> = input:GetS64()</READ>
+      <WRITE Trim="True">        output:PutS64(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetS64</E_READ>
+      <E_WRITE>output.PutS64</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.UInt64">
+      <READ Trim="True">        data.<F_NAME/> = input:GetU64()</READ>
+      <WRITE Trim="True">        output:PutU64(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetU64</E_READ>
+      <E_WRITE>output.PutU64</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Single">
+      <READ Trim="True">        data.<F_NAME/> = input:GetF32()</READ>
+      <WRITE Trim="True">        output:PutF32(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetF32</E_READ>
+      <E_WRITE>output.PutF32</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.Double">
+      <READ Trim="True">        data.<F_NAME/> = input:GetF64()</READ>
+      <WRITE Trim="True">        output:PutF64(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetF64</E_READ>
+      <E_WRITE>output.PutF64</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Boolean">
+      <READ Trim="True">        data.<F_NAME/> = input:GetBool()</READ>
+      <WRITE Trim="True">        output:PutBool(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetBool</E_READ>
+      <E_WRITE>output.PutBool</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Char">
+      <READ Trim="True">        data.<F_NAME/> = input:GetUnicode()</READ>
+      <WRITE Trim="True">        output:PutUnicode(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetUnicode</E_READ>
+      <E_WRITE>output.PutUnicode</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.String">
+      <READ Trim="True">        data.<F_NAME/> = input:GetUTF()</READ>
+      <WRITE Trim="True">        output:PutUTF(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetUTF</E_READ>
+      <E_WRITE>output.PutUTF</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="Enum" Enum="True" >
+      <READ Trim="True">        data.<F_NAME/> = input:GetEnum8()</READ>
+      <WRITE Trim="True">        output:PutEnum8(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetEnum8</E_READ>
+      <E_WRITE>output.PutEnum8</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="DeepCore.IO.ISerializable" Interface="True" >
+      <READ Trim="True">        data.<F_NAME/> = input:GetOBJ('<F_TYPE_NAME/>')</READ>
+      <WRITE Trim="True">        output:PutOBJ(data.<F_NAME/>,'<F_TYPE_NAME/>')</WRITE>
+      <E_READ>input.GetOBJ</E_READ>
+      <E_WRITE>output.PutOBJ</E_WRITE>
+    </FIELD>
+
+
+    <FIELD FieldType="System.DateTime">
+      <READ Trim="True">        data.<F_NAME/> = input:GetDateTime()</READ>
+      <WRITE Trim="True">        output:PutDateTime(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetDateTime</E_READ>
+      <E_WRITE>output.PutDateTime</E_WRITE>
+    </FIELD>
+    <FIELD FieldType="System.TimeSpan">
+      <READ Trim="True">        data.<F_NAME/> = input:GetTimeSpan()</READ>
+      <WRITE Trim="True">        output:PutTimeSpan(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetTimeSpan</E_READ>
+      <E_WRITE>output.PutTimeSpan</E_WRITE>
+    </FIELD>
+  
+    <FIELD FieldType="System.Byte[]">
+      <READ Trim="True">        data.<F_NAME/> = input:GetBytes()</READ>
+      <WRITE Trim="True">        output:PutBytes(data.<F_NAME/>)</WRITE>
+      <E_READ>input.GetBytes</E_READ>
+      <E_WRITE>output.PutBytes</E_WRITE>
+    </FIELD>
+  
+    <FIELD FieldType="System.Array" Array="True" >
+      <READ Trim="True">        data.<F_NAME/> = input:GetArray(<F_E_READ/>,'<F_E_TYPE_NAME/>')</READ>
+      <WRITE Trim="True">        output:PutArray(data.<F_NAME/>, <F_E_WRITE/>,'<F_E_TYPE_NAME/>')</WRITE>
+	  <E_READ>function(_) return input:GetArray(<F_E_READ/>,'<F_E_TYPE_NAME/>') end</E_READ>
+      <E_WRITE>function(_,v<F_DEEP/>) output:PutList(v<F_DEEP/>, <F_E_WRITE/>, '<F_E_TYPE_NAME/>') end</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Collections.IList" Interface="True" >
+      <READ Trim="True">        data.<F_NAME/> = input:GetList(<F_G0_READ/>,'<F_G0_TYPE_NAME/>')      </READ>
+      <WRITE Trim="True">        output:PutList(data.<F_NAME/>, <F_G0_WRITE/>,'<F_G0_TYPE_NAME/>')      </WRITE>
+	  <E_READ>function(_) return input:GetList(<F_G0_READ/>,'<F_G0_TYPE_NAME/>') end</E_READ>
+      <E_WRITE>function(_,v<F_DEEP/>) output:PutList(v<F_DEEP/>, <F_G0_WRITE/>, '<F_G0_TYPE_NAME/>') end</E_WRITE>
+    </FIELD>
+
+    <FIELD FieldType="System.Collections.IDictionary" Interface="True" >
+      <READ Trim="True">        data.<F_NAME/> = input:GetMap(<F_G0_READ/>, <F_G1_READ/>,'<F_G0_TYPE_NAME/>', '<F_G1_TYPE_NAME/>')      </READ>
+      <WRITE Trim="True">        output:PutMap(data.<F_NAME/>, <F_G0_WRITE/>, <F_G1_WRITE/>,'<F_G0_TYPE_NAME/>', '<F_G1_TYPE_NAME/>')      </WRITE>
+      <E_READ>function(_) return input:GetMap(<F_G0_READ/>, <F_G1_READ/>,'<F_G0_TYPE_NAME/>', '<F_G1_TYPE_NAME/>') end</E_READ>
+      <E_WRITE>function(_,v<F_DEEP/>) output:PutMap(v<F_DEEP/>, <F_G0_WRITE/>, <F_G1_WRITE/>,'<F_G0_TYPE_NAME/>', '<F_G1_TYPE_NAME/>') end</E_WRITE>
+    </FIELD>
+
+</DEFINE>
+
+</doc>

@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <LangVersion>default</LangVersion>
+    <Version>1.2.14</Version>
+    <Deterministic>true</Deterministic>
+    <Configurations>Debug;Release;Source</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DeepMeta.$(AssemblyName)</PackageId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Source'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="EventSystem\**" />
+    <Compile Remove="GameEvent.Lua.Sample\**" />
+    <EmbeddedResource Remove="EventSystem\**" />
+    <EmbeddedResource Remove="GameEvent.Lua.Sample\**" />
+    <None Remove="EventSystem\**" />
+    <None Remove="GameEvent.Lua.Sample\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="LuaDoFileEvent.cs" />
+    <Compile Remove="LuaDoStringEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepCore.Event\DeepCore.Event.csproj" />
+    <ProjectReference Include="..\DeepCore\DeepCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Union\" />
+  </ItemGroup>
+</Project>

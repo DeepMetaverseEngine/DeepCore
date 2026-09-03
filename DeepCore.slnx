@@ -1,0 +1,88 @@
+<Solution>
+  <Folder Name="/1.Core/">
+    <Project Path="DeepCore.Console/DeepCore.Console.csproj" />
+    <Project Path="DeepCore.Event.Debug/DeepCore.Event.Debug.csproj" />
+    <Project Path="DeepCore.Event.Lua/DeepCore.Event.Lua.csproj" />
+    <Project Path="DeepCore.Event/DeepCore.Event.csproj" />
+    <Project Path="DeepCore.Geometry/DeepCore.Geometry.csproj" />
+    <Project Path="DeepCore.GUI.Display/DeepCore.GUI.Display.csproj" />
+    <Project Path="DeepCore.GUI.FairyGUI/DeepCore.GUI.FairyGUI.csproj" />
+    <Project Path="DeepCore.GUI/DeepCore.GUI.csproj" />
+    <Project Path="DeepCore.MPQ/DeepCore.MPQ.csproj" />
+    <Project Path="DeepCore.Net.WebSocket/DeepCore.Net.WebSocket.csproj" />
+    <Project Path="DeepCore.Net/DeepCore.Net.csproj" />
+    <Project Path="DeepCore.SharpZipLib/DeepCore.SharpZipLib.csproj" />
+    <Project Path="DeepCore.Template.MoonSharp/DeepCore.Template.MoonSharp.csproj" />
+    <Project Path="DeepCore.Template.NewtonJson/DeepCore.Template.NewtonJson.csproj" />
+    <Project Path="DeepCore.Template.SLua/DeepCore.Template.SLua.csproj" />
+    <Project Path="DeepCore.Unity.Assets/DeepCore.Unity.Assets.csproj" />
+    <Project Path="DeepCore.Unity.GUI/DeepCore.Unity.GUI.csproj" />
+    <Project Path="DeepCore.Unity/DeepCore.Unity.csproj" />
+    <Project Path="DeepCore.Unity3D.Win32/DeepCore.Unity3D.Win32.csproj" />
+    <Project Path="DeepCore.Unity3D/DeepCore.Unity3D.csproj" />
+    <Project Path="DeepCore.UnityEditor/DeepCore.UnityEditor.csproj" />
+    <Project Path="DeepCore.Voxel/DeepCore.Voxel.csproj" />
+    <Project Path="DeepCore.VoxelWorld/DeepCore.VoxelWorld.csproj" />
+    <Project Path="DeepCore/DeepCore.csproj" />
+    <Project Path="DeepCrystal/DeepCrystal.csproj" />
+    <Project Path="DeepEditor.Common/DeepEditor.Common.csproj" />
+    <Project Path="DeepOpenAI/DeepOpenAI.csproj" />
+  </Folder>
+  <Folder Name="/2.Server/">
+    <Project Path="DeepFrozen.MySQL/DeepFrozen.MySQL.csproj" />
+    <Project Path="DeepFrozen.Redis/DeepFrozen.Redis.csproj" />
+    <Project Path="DeepFrozen.RPC.ICE/DeepFrozen.RPC.ICE.csproj" />
+    <Project Path="DeepFrozen.RPC/DeepFrozen.RPC.csproj" />
+    <Project Path="DeepFrozen.Server.NetUV/DeepFrozen.Server.NetUV.csproj" />
+    <Project Path="DeepFrozen.Server.SSocket2/DeepFrozen.Server.SSocket2.csproj" />
+  </Folder>
+  <Folder Name="/3.Game/">
+    <Project Path="DeepMetaGame.CLI/DeepMetaGame.CLI.csproj" />
+    <Project Path="DeepMetaGame.Data/DeepMetaGame.Data.csproj" />
+    <Project Path="DeepMetaGame.Display/DeepMetaGame.Display.csproj" />
+    <Project Path="DeepMetaGame.Host/DeepMetaGame.Host.csproj" />
+    <Project Path="DeepMetaGame.Slave/DeepMetaGame.Slave.csproj" />
+    <Project Path="DeepMetaGame.Tools/DeepMetaGame.Tools.csproj" />
+    <Project Path="DeepMetaGame.Unity/DeepMetaGame.Unity.csproj" />
+    <Project Path="DeepMetaGame.UnityAssets/DeepMetaGame.UnityAssets.csproj" />
+    <Project Path="DeepMetaGame.UnityPreview/DeepMetaGame.UnityPreview.csproj" />
+    <Project Path="DeepMetaGame.Win32/DeepMetaGame.Win32.csproj" />
+    <Project Path="DeepMetaGame.ZoneClient/DeepMetaGame.ZoneClient.csproj" />
+    <Project Path="DeepMetaGame.ZoneServer/DeepMetaGame.ZoneServer.csproj" />
+  </Folder>
+  <Folder Name="/4.MMO/">
+    <Project Path="Gate.Client/Gate.Client.csproj" />
+    <Project Path="Gate.Data/Gate.Data.csproj" />
+    <Project Path="Gate.Server.Main/Gate.Server.Main.csproj" />
+    <Project Path="Gate.Server/Gate.Server.csproj" />
+    <Project Path="MMO.Client/MMO.Client.csproj" />
+    <Project Path="MMO.Server.Main/MMO.Server.Main.csproj" />
+    <Project Path="MMO.Server/MMO.Server.csproj" />
+  </Folder>
+  <Folder Name="/5.Tools/">
+    <Project Path="DeepTools.CodeGen/DeepTools.CodeGen.csproj" />
+    <Project Path="DeepTools.DBLauncher/DeepTools.DBLauncher.csproj" />
+    <Project Path="DeepTools.GUI/DeepTools.GUI.csproj" />
+    <Project Path="DeepTools.Image/DeepTools.Image.csproj" />
+    <Project Path="DeepTools.MPQ/DeepTools.MPQ.csproj" />
+    <Project Path="DeepTools.MPQUpdate/DeepTools.MPQUpdate.csproj" />
+    <Project Path="DeepTools.NuGetIncrement/DeepTools.NuGetIncrement.csproj" />
+    <Project Path="DeepTools.SvnCombiner/DeepTools.SvnCombiner.csproj" />
+    <Project Path="DeepTools.Voxel/DeepTools.Voxel.csproj" />
+    <Project Path="DeepTools.XLS2Lang/DeepTools.XLS2Lang.csproj" />
+  </Folder>
+  <Folder Name="/6.Editor/">
+    <Project Path="../DeepEditorMain/DeepGameEditor3D.AI/DeepGameEditor3D.AI.csproj" />
+    <Project Path="../DeepEditorMain/DeepGameEditor3D.Main/DeepGameEditor3D.Main.csproj" />
+    <Project Path="../DeepEditorMain/DeepGameEditor3D.MMO/DeepGameEditor3D.MMO.csproj" />
+    <Project Path="../DeepEditorMain/DeepGameEditor3D.MMOServer/DeepGameEditor3D.MMOServer.csproj" />
+    <Project Path="../DeepEditorMain/DeepGameEditor3D.Plugin3D/DeepGameEditor3D.Plugin3D.csproj" />
+    <Project Path="../DeepEditorMain/DeepGameEditor3D.Unity3D.Ipc/DeepGameEditor3D.Unity3D.Ipc.csproj" />
+    <Project Path="../DeepEditorMain/DeepGameEditor3D.Unity3D/DeepGameEditor3D.Unity3D.csproj" />
+  </Folder>
+  <Folder Name="/6.EditorBuild/">
+    <Project Path="../DeepEditorMain/DeepGameEditor3D.Packages/DeepGameEditor3D.Packages.csproj">
+      <Build Solution="Debug|*" Project="false" />
+    </Project>
+  </Folder>
+</Solution>
