@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net9.0-windows;net10.0-windows</TargetFrameworks>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Version>1.2.22</Version>
+		<Deterministic>true</Deterministic>
+		<NoWarn>$(NoWarn);WFO1000</NoWarn>
+		<Configurations>Debug;Release;Source</Configurations>
+	</PropertyGroup>
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageId>DeepMeta.$(AssemblyName)</PackageId>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="AntdUI" Version="2.3.4" />
+		<PackageReference Include="FreeImage.Standard" Version="4.3.8" />
+		<PackageReference Include="glTF2Loader" Version="1.1.3-alpha" />
+		<PackageReference Include="OpenTK" Version="4.9.4" />
+		<PackageReference Include="OpenTK.Windowing.Desktop" Version="4.9.4" />
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="10.0.5" />
+		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'!='Source'">
+		<Reference Include="DeepGameEditor3D.Main">
+			<HintPath>..\..\DeepCore\.outputs\net9.0-windows\DeepGameEditor3D.Main.dll</HintPath>
+		</Reference>
+		<Reference Include="DeepGameEditor3D.MMO">
+			<HintPath>..\..\DeepCore\.outputs\net9.0-windows\DeepGameEditor3D.MMO.dll</HintPath>
+		</Reference>
+		<Reference Include="DeepGameEditor3D.MMOServer">
+			<HintPath>..\..\DeepCore\.outputs\net9.0-windows\DeepGameEditor3D.MMOServer.dll</HintPath>
+		</Reference>
+		<Reference Include="DeepGameEditor3D.Plugin3D">
+			<HintPath>..\..\DeepCore\.outputs\net9.0-windows\DeepGameEditor3D.Plugin3D.dll</HintPath>
+		</Reference>
+		<Reference Include="DeepGameEditor3D.Unity3D">
+			<HintPath>..\..\DeepCore\.outputs\net9.0-windows\DeepGameEditor3D.Unity3D.dll</HintPath>
+		</Reference>
+		<Reference Include="DeepEditor.Common">
+			<HintPath>..\..\DeepCore\.outputs\net9.0-windows\DeepEditor.Common.dll</HintPath>
+		</Reference>
+		<Reference Include="DeepMetaGame.Win32">
+			<HintPath>..\..\DeepCore\.outputs\net9.0-windows\DeepMetaGame.Win32.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+
+	<ItemGroup Condition="'$(Configuration)'=='Source'">
+		<ProjectReference Include="..\..\DeepEditorMain\DeepGameEditor3D.Main\DeepGameEditor3D.Main.csproj" />
+		<ProjectReference Include="..\..\DeepEditorMain\DeepGameEditor3D.MMO\DeepGameEditor3D.MMO.csproj" />
+		<ProjectReference Include="..\..\DeepEditorMain\DeepGameEditor3D.MMOServer\DeepGameEditor3D.MMOServer.csproj" />
+		<ProjectReference Include="..\..\DeepEditorMain\DeepGameEditor3D.Plugin3D\DeepGameEditor3D.Plugin3D.csproj" />
+		<ProjectReference Include="..\..\DeepEditorMain\DeepGameEditor3D.Unity3D\DeepGameEditor3D.Unity3D.csproj" />
+		<ProjectReference Include="..\..\DeepEditorMain\DeepEditor.Common\DeepEditor.Common.csproj" />
+		<ProjectReference Include="..\..\DeepEditorMain\DeepMetaGame.Win32\DeepMetaGame.Win32.csproj" />
+	</ItemGroup>
+
+
+</Project>

@@ -9,12 +9,37 @@ namespace DeepEditorConsole
     public static class Exec
     {
         public static ConsoleColor ForegroundColor = ConsoleColor.Green;
+
+    
+        public static void Print(string message, ConsoleColor color)
+        {
+            var originalColor = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            Console.ForegroundColor = originalColor;
+        }
+        public static void PrintError(string message)
+        {
+            var originalColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ForegroundColor = originalColor;
+        }
+        public static void PrintWarning(string message)
+        {
+            var originalColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(message);
+            Console.ForegroundColor = originalColor;
+        }
+
         public static int Run(string cmd, string args)
         {
             return Run(cmd, args, Environment.CurrentDirectory);
         }
         public static int Run(string cmd, string args, string workingDirectory)
         {
+            var originalColor = Console.ForegroundColor;
             try
             {
                 Console.ForegroundColor = ForegroundColor;
@@ -39,7 +64,7 @@ namespace DeepEditorConsole
                 {
                     if (!string.IsNullOrEmpty(e.Data))
                     {
-                        Console.WriteLine(e.Data);
+                        PrintError(e.Data);
                     }
                 };
                 process.Start();
@@ -50,12 +75,12 @@ namespace DeepEditorConsole
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception: " + ex.Message);
+                PrintError("Exception: " + ex.Message);
                 return -1;
             }
             finally
             {
-                Console.ResetColor();
+                Console.ForegroundColor = originalColor;
             }
         }
         public static int Cmd(string cmd, string args)

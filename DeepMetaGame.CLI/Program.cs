@@ -46,25 +46,25 @@ Options:
                         var projName = Console.ReadLine().Trim();
                         if (string.IsNullOrWhiteSpace(projName))
                         {
-                            Console.WriteLine($"Project Name Must Be Nonblank Text !!");
-                            Console.WriteLine(USAGE);
+                            Exec.PrintError($"Project Name Must Be Nonblank Text !!");
+                            Exec.PrintWarning(USAGE);
                             return -1;
                         }
                         Console.WriteLine($"Current Project Name: {projName}");
                         return rename_proj(pargs, root, projName);
                     default:
-                        Console.WriteLine($"Unknown command: {cmd}");
-                        Console.WriteLine(USAGE);
+                        Exec.PrintWarning($"Unknown command: {cmd}");
+                        Exec.PrintWarning(USAGE);
                         return 0;
                 }
             }
-            Console.WriteLine(USAGE);
+            Exec.PrintWarning(USAGE);
             return init(pargs, root);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Exception: " + ex.Message);
-            Console.WriteLine(USAGE);
+            Exec.PrintError("Exception: " + ex.Message);
+            Exec.PrintWarning(USAGE);
             return -1;
         }
         finally
@@ -223,6 +223,19 @@ Options:
                 }
             }
         }
+        return build_editor(pargs, root, projName);
+    }
+    static int build_editor(Properties pargs, DirectoryInfo root, string projName)
+    {
+        var proj_sln = new FileInfo(Path.Combine(root.FullName, $"{projName}SLN", $"{projName}.slnx"));
+        try
+        {
+            Exec.Run("dotnet", $"build --configuration Debug --no-incremental {proj_sln.Name}", proj_sln.Directory.FullName);
+        }
+        catch (Exception ex)
+        {
+            Exec.PrintError("Exception: " + ex.Message);
+        }
         return rename_editor(pargs, root, projName);
     }
     static int rename_editor(Properties pargs, DirectoryInfo root, string projName)
@@ -232,38 +245,38 @@ Options:
         {
             var list = CFiles.ListAllFiles(editor_dir, d => d.Name.StartsWith(TEMP_NAME));
             //while (editor_dir.FindFile(d => d.Name.StartsWith(TEMP_NAME)) is FileInfo tempFile)
-            foreach (var tempFile in list)
-            {
-                var dstFile = new FileInfo(Path.Combine(tempFile.Directory.FullName, tempFile.Name.Replace(TEMP_NAME, projName)));
-                if (tempFile.Name.EndsWith(".dll") ||
-                    tempFile.Name.EndsWith(".exe") ||
-                    tempFile.Name.EndsWith(".pdb") ||
-                    tempFile.Name.EndsWith(".config") ||
-                    tempFile.Name.EndsWith(".json"))
-                {
-                    var code = Exec.Cmd("copy", $" /y \"{tempFile.FullName}\" \"{dstFile.FullName}\"");
-                    if (code != 0)
-                    {
-                        return code;
-                    }
-                    replace_all(dstFile, TEMP_NAME, projName);
-                }
-                //                 else
-                //                 {
-                //                     var code = Exec.Cmd("ren", $"\"{tempFile.FullName}\" \"{projDir.Name}\"");
-                //                     if (code != 0)
-                //                     {
-                //                         return code;
-                //                     }
-                //                 }
-            }
+//             foreach (var tempFile in list)
+//             {
+//                 var dstFile = new FileInfo(Path.Combine(tempFile.Directory.FullName, tempFile.Name.Replace(TEMP_NAME, projName)));
+//                 if (tempFile.Name.EndsWith(".dll") ||
+//                     tempFile.Name.EndsWith(".exe") ||
+//                     tempFile.Name.EndsWith(".pdb") ||
+//                     tempFile.Name.EndsWith(".config") ||
+//                     tempFile.Name.EndsWith(".json"))
+//                 {
+//                     var code = Exec.Cmd("copy", $" /y \"{tempFile.FullName}\" \"{dstFile.FullName}\"");
+//                     if (code != 0)
+//                     {
+//                         return code;
+//                     }
+//                     replace_all(dstFile, TEMP_NAME, projName);
+//                 }
+//                 //                 else
+//                 //                 {
+//                 //                     var code = Exec.Cmd("ren", $"\"{tempFile.FullName}\" \"{projDir.Name}\"");
+//                 //                     if (code != 0)
+//                 //                     {
+//                 //                         return code;
+//                 //                     }
+//                 //                 }
+//             }
             // Replace content in all relevant files
             {
                 var subfiles = editor_dir.GetFiles("*", SearchOption.AllDirectories);
                 foreach (var sub in subfiles)
                 {
-                    if (sub.Name.EndsWith(".cs") || 
-                        sub.Name.EndsWith(".xml") || 
+                    if (sub.Name.EndsWith(".cs") ||
+                        sub.Name.EndsWith(".xml") ||
                         sub.Name.EndsWith(".csproj") ||
                         sub.Name.EndsWith(".bat"))
                     {
