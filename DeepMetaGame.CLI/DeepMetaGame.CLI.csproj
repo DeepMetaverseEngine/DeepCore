@@ -15,30 +15,7 @@
 		<PackageId>DeepMeta.$(AssemblyName)</PackageId>
 	</PropertyGroup>
 	<ItemGroup>
-		<Compile Remove="TempProject\**" />
-		<EmbeddedResource Remove="TempProject\**" />
-		<None Remove="TempProject\**" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Remove=".gitignore" />
-		<None Remove="init_project.bat" />
-		<None Remove="_gitattributes" />
-		<None Remove="_gitignore" />
-	</ItemGroup>
-	<ItemGroup>
 		<Compile Include="..\DeepCore.Console\Exec.cs" Link="Exec.cs" />
-	</ItemGroup>
-	<ItemGroup>
-		<EmbeddedResource Include="init_project.bat">
-			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</EmbeddedResource>
-		<EmbeddedResource Include="_gitattributes" />
-		<EmbeddedResource Include="_gitignore" />
-	</ItemGroup>
-	<ItemGroup>
-	  <EmbeddedResource Include="_Temp_.slnx">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\DeepCore\DeepCore.csproj" />

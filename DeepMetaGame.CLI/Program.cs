@@ -15,8 +15,8 @@ Options:
   -root=<path>         Specify the root directory for the project
 ";
 
-    static string TEMPLATE_GIT_URL = "git@github.com:DeepMetaverseEngine/DeepTemplate.git";//"git@git.code.tencent.com:DeepMeta/DeepTemplate.git";
-    static string DEEPMETA_GIT_URL = "git@github.com:DeepMetaverseEngine/DeepMeta.git";//"git@git.code.tencent.com:DeepMeta/DeepMeta.git";
+    static string TEMPLATE_GIT_URL = "git@github.com:DeepMetaverseEngine/TemplateProject.git";//"git@git.code.tencent.com:DeepMeta/TemplateProject.git";
+    static string DEEPCORE_GIT_URL = "git@github.com:DeepMetaverseEngine/DeepCore.git";//"git@git.code.tencent.com:DeepMeta/DeepCore.git";
 
 
     [STAThread]
@@ -93,10 +93,10 @@ Options:
                 var submodules = Properties.ParseLines(File.ReadAllLines(Path.Combine(root.FullName, ".gitmodules")));
                 foreach (var e in submodules)
                 {
-                    if (e.Value.EndsWith("DeepMeta.git"))
+                    if (e.Value.EndsWith("DeepCore.git"))
                     {
-                        DEEPMETA_GIT_URL = e.Value;
-                        Console.WriteLine("Redirect DeepMeta Git Url : " + DEEPMETA_GIT_URL);
+                        DEEPCORE_GIT_URL = e.Value;
+                        Console.WriteLine("Redirect DeepCore Git Url : " + DEEPCORE_GIT_URL);
                         break;
                     }
                 }
@@ -168,15 +168,15 @@ Options:
                 }
             }
             proj_sln_dir.Refresh();
-            // Clone DeepMeta submodule
+            // Clone DeepCore submodule
             {
-                var DeepMetaPath = Path.Combine(proj_sln_dir.FullName, "DeepMeta");
-                Exec.Cmd("rd", $" /s /q \"{DeepMetaPath}\"");
+                var DeepCorePath = Path.Combine(proj_sln_dir.FullName, "DeepCore");
+                Exec.Cmd("rd", $" /s /q \"{DeepCorePath}\"");
                 Exec.Cmd("del", $" /s /q \"{Path.Combine(root.FullName, ".gitmodules")}\"");
-                Console.WriteLine("### Clone DeepMeta submodule ###");
-                Exec.Run("git", $"submodule add --progress {DEEPMETA_GIT_URL} DeepMeta", proj_sln_dir.FullName);
-                Exec.Run("git", $"pull \"origin\"  master:master", DeepMetaPath);
-                Exec.Run("git", $"lfs pull", DeepMetaPath);
+                Console.WriteLine("### Clone DeepCore submodule ###");
+                Exec.Run("git", $"submodule add --progress {DEEPCORE_GIT_URL} DeepCore", proj_sln_dir.FullName);
+                Exec.Run("git", $"pull \"origin\"  master:master", DeepCorePath);
+                Exec.Run("git", $"lfs pull", DeepCorePath);
             }
             proj_sln_dir.Refresh();
         }
@@ -342,7 +342,7 @@ Options:
                     if (dir.Name.StartsWith("_Temp_"))
                     {
                         var target_proj = $"{projName}SLN\\{projName}Src\\{dir.Name.Replace("_Temp_", projName)}";
-                        CFiles.ShellXCopy(root, $"{projName}SLN\\DeepMeta\\{dir.Name}", target_proj);
+                        CFiles.ShellXCopy(root, $"{projName}SLN\\DeepCore\\{dir.Name}", target_proj);
                         if (projName!= "_Temp_")
                         {
                             var subfiles = new DirectoryInfo(target_proj).GetFiles("*", SearchOption.AllDirectories);
@@ -385,7 +385,7 @@ Options:
                 Console.WriteLine($"Error: {err}");
                 return -1;
             }
-            //CFiles.ShellXCopy(root, $"{projName}SLN\\DeepMeta\\_Temp_*", $"{projName}SLN\\{projName}Src");
+            //CFiles.ShellXCopy(root, $"{projName}SLN\\DeepCore\\_Temp_*", $"{projName}SLN\\{projName}Src");
         }
         var SlnFilePath = Path.Combine(SlnPath, $"{projName}.slnx");
         if (!Directory.Exists(SlnFilePath))
