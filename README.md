@@ -1,8 +1,8 @@
 # DeepMeta
 
-[![Release](https://img.shields.io/github/v/release/DeepMetaverseEngine/DeepMeta?color=blue&style=flat-square)](https://github.com/DeepMetaverseEngine/DeepMeta/releases)
-[![License](https://img.shields.io/github/license/DeepMetaverseEngine/DeepMeta?style=flat-square)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows-lightgrey?style=flat-square)](https://github.com/DeepMetaverseEngine/DeepMeta/releases/tag/v1.0.0)
+[![Release](https://img.shields.io/github/v/release/DeepMetaverseEngine/DeepCore?color=blue&style=flat-square)](https://github.com/DeepMetaverseEngine/DeepCore/releases)
+[![License](https://img.shields.io/github/license/DeepMetaverseEngine/DeepCore?style=flat-square)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Windows-lightgrey?style=flat-square)](https://github.com/DeepMetaverseEngine/DeepCore/releases/tag/v1.0.0)
 
 > **DeepMeta** 是专为高性能游戏客户端与服务器端架构设计的 CLI 命令行与核心工具箱。
 
@@ -41,7 +41,7 @@
 
 | 版本 | 文件类型 | 下载链接 |
 | :--- | :--- | :--- |
-| **v1.0.0** (最新版) | Windows CLI (`.exe`) | [📥 点击下载 gamecli.exe](https://github.com/DeepMetaverseEngine/DeepMeta/releases/download/v1.0.0/gamecli.exe) |
+| **v1.0.0** (最新版) | Windows CLI (`.exe`) | [📥 点击下载 gamecli.exe](https://github.com/DeepMetaverseEngine/DeepCore/releases/download/v1.0.0/gamecli.exe) |
 
 ---
 
@@ -52,7 +52,7 @@
 ### 1. 下载工具
 通过上述表格中的链接下载 `gamecli.exe`，或使用命令行（PowerShell）下载至你想要创建工程的目标目录：
 ```powershell
-Invoke-WebRequest -Uri "[https://github.com/DeepMetaverseEngine/DeepMeta/releases/download/v1.0.0/gamecli.exe](https://github.com/DeepMetaverseEngine/DeepMeta/releases/download/v1.0.0/gamecli.exe)" -OutFile "gamecli.exe"
+Invoke-WebRequest -Uri "[https://github.com/DeepMetaverseEngine/DeepCore/releases/download/v1.0.0/gamecli.exe](https://github.com/DeepMetaverseEngine/DeepCore/releases/download/v1.0.0/gamecli.exe)" -OutFile "gamecli.exe"
 ```
 运行后，会自动创建游戏工程。前提条件是在Windows环境，你需要配置好你的.ssh证书。
 
