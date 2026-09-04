@@ -230,7 +230,15 @@ Options:
         var proj_sln = new FileInfo(Path.Combine(root.FullName, $"{projName}SLN", $"{projName}.slnx"));
         try
         {
-            Exec.Run("dotnet", $"build --configuration Debug --no-incremental {proj_sln.Name}", proj_sln.Directory.FullName);
+            Exec.Run("dotnet", $"build --configuration Debug --no-incremental \"{proj_sln.FullName}\"", proj_sln.Directory.FullName);
+        }
+        catch (Exception ex)
+        {
+            Exec.PrintError("Exception: " + ex.Message);
+        }
+        try
+        {
+            Exec.Run("dotnet", $"build --configuration Debug \"{proj_sln.FullName}\"", proj_sln.Directory.FullName);
         }
         catch (Exception ex)
         {
@@ -241,35 +249,35 @@ Options:
     static int rename_editor(Properties pargs, DirectoryInfo root, string projName)
     {
         var editor_dir = new DirectoryInfo(Path.Combine(root.FullName, $"GameEditor"));
-        //if (replace_all(new FileInfo(Path.Combine(root.FullName, $"GameEditor.bat")), TEMP_NAME, projName))
+        replace_all(new FileInfo(Path.Combine(root.FullName, $"GameEditor.bat")), TEMP_NAME, projName);
         {
             var list = CFiles.ListAllFiles(editor_dir, d => d.Name.StartsWith(TEMP_NAME));
             //while (editor_dir.FindFile(d => d.Name.StartsWith(TEMP_NAME)) is FileInfo tempFile)
-//             foreach (var tempFile in list)
-//             {
-//                 var dstFile = new FileInfo(Path.Combine(tempFile.Directory.FullName, tempFile.Name.Replace(TEMP_NAME, projName)));
-//                 if (tempFile.Name.EndsWith(".dll") ||
-//                     tempFile.Name.EndsWith(".exe") ||
-//                     tempFile.Name.EndsWith(".pdb") ||
-//                     tempFile.Name.EndsWith(".config") ||
-//                     tempFile.Name.EndsWith(".json"))
-//                 {
-//                     var code = Exec.Cmd("copy", $" /y \"{tempFile.FullName}\" \"{dstFile.FullName}\"");
-//                     if (code != 0)
-//                     {
-//                         return code;
-//                     }
-//                     replace_all(dstFile, TEMP_NAME, projName);
-//                 }
-//                 //                 else
-//                 //                 {
-//                 //                     var code = Exec.Cmd("ren", $"\"{tempFile.FullName}\" \"{projDir.Name}\"");
-//                 //                     if (code != 0)
-//                 //                     {
-//                 //                         return code;
-//                 //                     }
-//                 //                 }
-//             }
+            //             foreach (var tempFile in list)
+            //             {
+            //                 var dstFile = new FileInfo(Path.Combine(tempFile.Directory.FullName, tempFile.Name.Replace(TEMP_NAME, projName)));
+            //                 if (tempFile.Name.EndsWith(".dll") ||
+            //                     tempFile.Name.EndsWith(".exe") ||
+            //                     tempFile.Name.EndsWith(".pdb") ||
+            //                     tempFile.Name.EndsWith(".config") ||
+            //                     tempFile.Name.EndsWith(".json"))
+            //                 {
+            //                     var code = Exec.Cmd("copy", $" /y \"{tempFile.FullName}\" \"{dstFile.FullName}\"");
+            //                     if (code != 0)
+            //                     {
+            //                         return code;
+            //                     }
+            //                     replace_all(dstFile, TEMP_NAME, projName);
+            //                 }
+            //                 //                 else
+            //                 //                 {
+            //                 //                     var code = Exec.Cmd("ren", $"\"{tempFile.FullName}\" \"{projDir.Name}\"");
+            //                 //                     if (code != 0)
+            //                 //                     {
+            //                 //                         return code;
+            //                 //                     }
+            //                 //                 }
+            //             }
             // Replace content in all relevant files
             {
                 var subfiles = editor_dir.GetFiles("*", SearchOption.AllDirectories);

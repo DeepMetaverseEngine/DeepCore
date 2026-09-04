@@ -64,7 +64,7 @@ namespace DeepEditorConsole
                 {
                     if (!string.IsNullOrEmpty(e.Data))
                     {
-                        PrintError(e.Data);
+                        Console.WriteLine(e.Data);
                     }
                 };
                 process.Start();
