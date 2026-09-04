@@ -31,6 +31,10 @@ Options:
             {
                 root = new DirectoryInfo(_root);
             }
+            if (pargs.TryGetValue("-git-url", out var _gitUrl))
+            {
+                TEMPLATE_GIT_URL = _gitUrl.Trim();
+            }
             if (args.Length > 1)
             {
                 Environment.CurrentDirectory = root.FullName;
