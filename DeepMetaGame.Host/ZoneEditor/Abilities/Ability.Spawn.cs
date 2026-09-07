@@ -147,7 +147,9 @@ namespace DeepCore.Game3D.Host.Instance.Abilities
             get { return mSpawnedUnits.Count; }
         }
 
-
+        /// <summary>
+        /// 已经刷新了多少个单位
+        /// </summary>
         public int TotalSpawnCount
         {
             get { return mTotalSpawnCount; }
@@ -194,6 +196,9 @@ namespace DeepCore.Game3D.Host.Instance.Abilities
         {
             this.mSpawnTimeIntervalMS = interval;
         }
+        /// <summary>
+        /// 已经刷新了多少个单位
+        /// </summary>
         public void setTotalSpawnCount(int count)
         {
             this.mTotalSpawnCount = count;

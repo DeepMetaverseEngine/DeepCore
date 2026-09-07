@@ -428,114 +428,114 @@ namespace DeepCore
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------
-        public TableBase<K, T> ListenSheet<K, T>(string xlsFile, string sheetName, string keyField, Action<TableBase<K, T>> onLoaded, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> ListenSheet<K, T>(string xlsFile, string sheetName, string keyField, Action<TableBase<K, T>> onLoaded, TableBase<K, T> _ = null) where T : class, new()
         {
             var cache = ListenSheet<K, T>(xlsFile, sheetName, keyField);
             cache.OnLoaded += ((e) => onLoaded(e as TableBase<K, T>));
             return cache;
         }
-        public TableBase<K, T> ListenSheets<K, T>(string xlsFile, string[] sheetName, string keyField, Action<TableBase<K, T>> onLoaded, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> ListenSheets<K, T>(string xlsFile, string[] sheetName, string keyField, Action<TableBase<K, T>> onLoaded, TableBase<K, T> _ = null) where T : class, new()
         {
             var cache = ListenSheets<K, T>(xlsFile, sheetName, keyField);
             cache.OnLoaded += ((e) => onLoaded(e as TableBase<K, T>));
             return cache;
         }
-        public TableBase<K, T> Listen<K, T>(string xlsFile, string keyField, Action<TableBase<K, T>> onLoaded, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> Listen<K, T>(string xlsFile, string keyField, Action<TableBase<K, T>> onLoaded, TableBase<K, T> _ = null) where T : class, new()
         {
             var cache = Listen<K, T>(xlsFile, keyField);
             cache.OnLoaded += ((e) => onLoaded(e as TableBase<K, T>));
             return cache;
         }
-        public TableBase<K, T> Listen<K, T>(CacheFileInfo xlsFile, string keyField, Action<TableBase<K, T>> onLoaded, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> Listen<K, T>(CacheFileInfo xlsFile, string keyField, Action<TableBase<K, T>> onLoaded, TableBase<K, T> _ = null) where T : class, new()
         {
             var cache = Listen<K, T>(xlsFile, keyField);
             cache.OnLoaded += ((e) => onLoaded(e as TableBase<K, T>));
             return cache;
         }
         //-------------------------------------------------------------------------------------------------------------------------------------------------
-        public TableBase<K, T> ListenSheet<K, T>(string xlsFile, string sheetName, string keyField, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> ListenSheet<K, T>(string xlsFile, string sheetName, string keyField, TableBase<K, T> _ = null) where T : class, new()
         {
             return InternalListenMap<K, T>(new CacheFileInfo(new XlsFileInfo() { FileName = xlsFile, Sheets = [sheetName] }), keyField);
         }
-        public TableBase<K, T> ListenSheets<K, T>(string xlsFile, string[] sheetName, string keyField, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> ListenSheets<K, T>(string xlsFile, string[] sheetName, string keyField, TableBase<K, T> _ = null) where T : class, new()
         {
             return InternalListenMap<K, T>(new CacheFileInfo(new XlsFileInfo() { FileName = xlsFile, Sheets = sheetName }), keyField);
         }
-        public TableBase<K, T> Listen<K, T>(string xlsFile, string keyField, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> Listen<K, T>(string xlsFile, string keyField, TableBase<K, T> _ = null) where T : class, new()
         {
             return InternalListenMap<K, T>(new CacheFileInfo(new XlsFileInfo() { FileName = xlsFile, }), keyField);
         }
-        public TableBase<K, T> Listen<K, T>(string[] files, string keyField, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> Listen<K, T>(string[] files, string keyField, TableBase<K, T> _ = null) where T : class, new()
         {
             return InternalListenMap<K, T>(new CacheFileInfo(Array.ConvertAll(files, f => new XlsFileInfo(f))), keyField);
         }
-        public TableBase<K, T> Listen<K, T>(XlsFileInfo[] files, string keyField, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> Listen<K, T>(XlsFileInfo[] files, string keyField, TableBase<K, T> _ = null) where T : class, new()
         {
             return InternalListenMap<K, T>(new CacheFileInfo(files), keyField);
         }
-        public TableBase<K, T> Listen<K, T>(CacheFileInfo files, string keyField, TableBase<K, T> _ = null) where T : new()
+        public TableBase<K, T> Listen<K, T>(CacheFileInfo files, string keyField, TableBase<K, T> _ = null) where T : class, new()
         {
             return InternalListenMap<K, T>(files, keyField);
         }
         //-------------------------------------------------------------------------------------------------------------------------------------------------
-        public ListTableBase<T> ListenSheetList<T>(string xlsFile, string sheetName, Action<ListTableBase<T>> onLoaded, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenSheetList<T>(string xlsFile, string sheetName, Action<ListTableBase<T>> onLoaded, ListTableBase<T> _ = null) where T : class, new()
         {
             var cache = ListenSheetList<T>(xlsFile, sheetName);
             cache.OnLoaded += ((e) => onLoaded(e as ListTableBase<T>));
             return cache;
         }
-        public ListTableBase<T> ListenSheetsList<T>(string xlsFile, string[] sheetName, Action<ListTableBase<T>> onLoaded, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenSheetsList<T>(string xlsFile, string[] sheetName, Action<ListTableBase<T>> onLoaded, ListTableBase<T> _ = null) where T : class, new()
         {
             var cache = ListenSheetsList<T>(xlsFile, sheetName);
             cache.OnLoaded += ((e) => onLoaded(e as ListTableBase<T>));
             return cache;
         }
-        public ListTableBase<T> ListenList<T>(string xlsFile, Action<ListTableBase<T>> onLoaded, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenList<T>(string xlsFile, Action<ListTableBase<T>> onLoaded, ListTableBase<T> _ = null) where T : class, new()
         {
             var cache = ListenList<T>(xlsFile);
             cache.OnLoaded += ((e) => onLoaded(e as ListTableBase<T>));
             return cache;
         }
-        public ListTableBase<T> ListenList<T>(CacheFileInfo xlsFile, Action<ListTableBase<T>> onLoaded, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenList<T>(CacheFileInfo xlsFile, Action<ListTableBase<T>> onLoaded, ListTableBase<T> _ = null) where T : class, new()
         {
             var cache = ListenList<T>(xlsFile);
             cache.OnLoaded += ((e) => onLoaded(e as ListTableBase<T>));
             return cache;
         }
         //-------------------------------------------------------------------------------------------------------------------------------------------------
-        public ListTableBase<T> ListenSheetList<T>(string xlsFile, string sheetName, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenSheetList<T>(string xlsFile, string sheetName, ListTableBase<T> _ = null) where T : class, new()
         {
             return InternalListenList<T>(new CacheFileInfo(new XlsFileInfo() { FileName = xlsFile, Sheets = [sheetName] }));
         }
-        public ListTableBase<T> ListenSheetsList<T>(string xlsFile, string[] sheetName, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenSheetsList<T>(string xlsFile, string[] sheetName, ListTableBase<T> _ = null) where T : class, new()
         {
             return InternalListenList<T>(new CacheFileInfo(new XlsFileInfo() { FileName = xlsFile, Sheets = sheetName }));
         }
-        public ListTableBase<T> ListenList<T>(string xlsFile, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenList<T>(string xlsFile, ListTableBase<T> _ = null) where T : class, new()
         {
             return InternalListenList<T>(new CacheFileInfo(new XlsFileInfo() { FileName = xlsFile, }));
         }
-        public ListTableBase<T> ListenList<T>(string[] files, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenList<T>(string[] files, ListTableBase<T> _ = null) where T : class, new()
         {
             return InternalListenList<T>(new CacheFileInfo(Array.ConvertAll(files, f => new XlsFileInfo(f))));
         }
-        public ListTableBase<T> ListenList<T>(XlsFileInfo[] files, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenList<T>(XlsFileInfo[] files, ListTableBase<T> _ = null) where T : class, new()
         {
             return InternalListenList<T>(new CacheFileInfo(files));
         }
-        public ListTableBase<T> ListenList<T>(CacheFileInfo files, ListTableBase<T> _ = null) where T : new()
+        public ListTableBase<T> ListenList<T>(CacheFileInfo files, ListTableBase<T> _ = null) where T : class, new()
         {
             return InternalListenList<T>(files);
         }
         //-------------------------------------------------------------------------------------------------------------------------------------------------
-        protected virtual TableBase<K, T> InternalListenMap<K, T>(CacheFileInfo files, string keyField) where T : new()
+        protected virtual TableBase<K, T> InternalListenMap<K, T>(CacheFileInfo files, string keyField) where T : class, new()
         {
             var key = $"{files}";
             var cache = new TableBase<K, T>(this, key, keyField, files);
             RegistTable(cache);
             return cache;
         }
-        protected virtual ListTableBase<T> InternalListenList<T>(CacheFileInfo files) where T : new()
+        protected virtual ListTableBase<T> InternalListenList<T>(CacheFileInfo files) where T : class, new()
         {
             var key = $"{files}";
             var cache = new ListTableBase<T>(this, key, files);
@@ -574,7 +574,7 @@ namespace DeepCore
         {
             return templatesMap.Get(name);
         }
-        public TableBase<K, T> GetTable<K, T>(string name) where T : new()
+        public TableBase<K, T> GetTable<K, T>(string name) where T : class, new()
         {
             if (templatesTypeMap.TryGetValue(typeof(T), out var tmap))
             {
@@ -582,7 +582,7 @@ namespace DeepCore
             }
             return null;
         }
-        public TableBase<K, T> GetTable<K, T>() where T : new()
+        public TableBase<K, T> GetTable<K, T>() where T : class, new()
         {
             if (templatesTypeMap.TryGetValue(typeof(T), out var tmap))
             {
@@ -590,7 +590,7 @@ namespace DeepCore
             }
             return null;
         }
-        public bool TryGetData<K, T>(K key, out T value) where T : new()
+        public bool TryGetData<K, T>(K key, out T value) where T : class, new()
         {
             if (templatesTypeMap.TryGetValue(typeof(T), out var tmap))
             {
@@ -608,7 +608,7 @@ namespace DeepCore
             value = default;
             return false;
         }
-        public T GetData<K, T>(K key) where T : new()
+        public T GetData<K, T>(K key) where T : class, new()
         {
             if (TryGetData(key, out T v))
             {
@@ -616,7 +616,7 @@ namespace DeepCore
             }
             return default;
         }
-        public List<T> GetAllData<T>() where T : new()
+        public List<T> GetAllData<T>() where T : class, new()
         {
             var ret = new List<T>();
             if (templatesTypeMap.TryGetValue(typeof(T), out var tmap))
@@ -1107,14 +1107,20 @@ namespace DeepCore
         }
     }
     //-------------------------------------------------------------------------------------------------------------------------------------------------
-    public class TableBase<K, T> : TableBase, IEnumerable<T>, IReadOnlyDictionary<K, T> where T : new()
+    public struct TableIndex<T> where T : class
+    {
+        public T Value { get; internal set; }
+        public int Index { get; internal set; }
+        public bool HasValue { get => Value != null; }
+    }
+    public class TableBase<K, T> : TableBase, IEnumerable<T>, IReadOnlyDictionary<K, T> where T : class, new()
     {
         protected readonly ListDictionary<string, ListDictionary<string, ArrayList<T>>> LoadedSheetsList;
         protected readonly HashMap<K, T> LoadedDatas;
         protected readonly ArrayList<T> LoadedDatasList;
         public IReadOnlyDictionary<K, T> TemplatesMap => LoadedDatas;
         public IReadOnlyList<T> TemplatesList => LoadedDatasList;
-        public T First { get => LoadedDatasList.Count > 0 ? LoadedDatasList[0] : default(T); }
+        public TableIndex<T> First { get => LoadedDatasList.Count > 0 ? new TableIndex<T>() { Value = LoadedDatasList[0], Index = 0 } : new TableIndex<T>() { Value = default(T), Index = -1 }; }
         public override IDictionaryEnumerator DataMap { get => LoadedDatas.GetEnumerator(); }
         public override IEnumerable Datas { get => LoadedDatasList; }
         public override int DataCount { get => LoadedDatasList.Count; }
@@ -1293,14 +1299,43 @@ namespace DeepCore
                 return false;
             }
         }
-        public bool TryGetNext(T value, out int nextIndex, out T next)
+        public TableIndex<T> GetNext(T current)
         {
+            if (TryGetNext(current, out var next))
+            {
+                return next;
+            }
+            return new TableIndex<T>() { Value = default, Index = -1 };
+        }
+        public TableIndex<T> GetNext(TableIndex<T> current)
+        {
+            if (TryGetNext(current, out var next))
+            {
+                return next;
+            }
+            return new TableIndex<T>() { Value = default, Index = -1 };
+        }
+        public bool TryGetNext(TableIndex<T> current, out TableIndex<T> next)
+        {
+            return TryGetNext(current.Value, out next);
+        }
+        public bool TryGetNext(T value, out TableIndex<T> next)
+        {
+            if (value == null)
+            {
+                next = First;
+                return First.HasValue;
+            }
             if (this.TemplatesList.TryIndexOf(value, out var index))
             {
-                nextIndex = index + 1;
+                var nextIndex = index + 1;
                 if (nextIndex < TemplatesList.Count)
                 {
-                    next = TemplatesList[nextIndex];
+                    next = new TableIndex<T>()
+                    {
+                        Index = nextIndex,
+                        Value = TemplatesList[nextIndex],
+                    };
                     return true;
                 }
             }
@@ -1308,8 +1343,11 @@ namespace DeepCore
             {
                 //log.Warn($"{this}.TryGetNext({value}) Not Exist !");
             }
-            nextIndex = -1;
-            next = default;
+            next = new TableIndex<T>()
+            {
+                Index = -1,
+                Value = default,
+            };
             return false;
         }
         public bool ContainsKey(K key)
@@ -1320,7 +1358,7 @@ namespace DeepCore
         public IEnumerator<T> GetEnumerator() => LoadedDatasList.GetEnumerator();
         //----------------------------------------------------------------------------------------------------------------
     }
-    public class ListTableBase<T> : TableBase<int, T> where T : new()
+    public class ListTableBase<T> : TableBase<int, T> where T : class, new()
     {
         public ListTableBase(TemplateDataCenter datacenter, string key, CacheFileInfo file) : base(datacenter, key, string.Empty, file)
         {
