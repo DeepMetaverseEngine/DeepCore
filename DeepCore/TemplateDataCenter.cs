@@ -1279,6 +1279,12 @@ namespace DeepCore
         }
 
         //----------------------------------------------------------------------------------------------------------------
+        IEnumerator<KeyValuePair<K, T>> IEnumerable<KeyValuePair<K, T>>.GetEnumerator() => LoadedDatas.GetEnumerator();
+        public IEnumerator<T> GetEnumerator() => LoadedDatasList.GetEnumerator();
+        public bool ContainsKey(K key)
+        {
+            return LoadedDatas.ContainsKey(key);
+        }
         public T Get(K key)
         {
             if (this.TryGetValue(key, out var value))
@@ -1298,6 +1304,15 @@ namespace DeepCore
                 //log.Warn($"{this}.TryGetValue({key}) Not Exist !");
                 return false;
             }
+        }
+        //----------------------------------------------------------------------------------------------------------------
+        public TableIndex<T> Index(int index)
+        {
+            if (index >= 0 && index < TemplatesList.Count)
+            {
+                return new TableIndex<T>() { Value = TemplatesList[index], Index = index };
+            }
+            return new TableIndex<T>() { Value = default, Index = -1 };
         }
         public TableIndex<T> GetNext(T current)
         {
@@ -1350,12 +1365,6 @@ namespace DeepCore
             };
             return false;
         }
-        public bool ContainsKey(K key)
-        {
-            return LoadedDatas.ContainsKey(key);
-        }
-        IEnumerator<KeyValuePair<K, T>> IEnumerable<KeyValuePair<K, T>>.GetEnumerator() => LoadedDatas.GetEnumerator();
-        public IEnumerator<T> GetEnumerator() => LoadedDatasList.GetEnumerator();
         //----------------------------------------------------------------------------------------------------------------
     }
     public class ListTableBase<T> : TableBase<int, T> where T : class, new()

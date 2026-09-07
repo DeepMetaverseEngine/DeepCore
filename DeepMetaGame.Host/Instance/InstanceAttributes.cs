@@ -61,8 +61,9 @@ namespace DeepCore.Game3D.Host.Instance
                     list = new List<Ability>();
                     mDataAbilities.Add(data.GetType(), list);
                 }
+                var index = list.Count;
                 list.Add(ab);
-                ab.Start(this);
+                ab.Start(this, index);
             }
             return ab;
         }

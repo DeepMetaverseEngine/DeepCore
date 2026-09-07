@@ -33,10 +33,31 @@ namespace DeepMetaGame.Data.Misc
         {
             this.Owner = owner;
         }
+        public HashMap<string, object> Save()
+        {
+            var varMap = new HashMap<string, object>();
+
+            foreach (var var in Map)
+            {
+                varMap.Put(var.Key, var.Value);
+            }
+            return varMap;
+        }
+        public void Load(HashMap<string, object> varMap, bool syncToClient = true)
+        {
+            if (varMap != null)
+            {
+                foreach (var var in varMap)
+                {
+                    SetEnvironmentVar(var.Key, var.Value, syncToClient);
+                }
+            }
+        }
+
         //-----------------------------------------------------------------------------------------------------//
         public event SetEnvironmentVarDelegate<O> OnEnvironmentVarChangeHandler;
         //-----------------------------------------------------------------------------------------------------//
-        public void SetEnvironmentVar(string key, object value, bool syncToClient)
+        public void SetEnvironmentVar(string key, object value, bool syncToClient = true)
         {
             if (!string.IsNullOrEmpty(key))
             {

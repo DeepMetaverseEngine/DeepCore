@@ -6,6 +6,7 @@ namespace DeepCore.Game3D.Host.Instance.Abilities
 
     public abstract class Ability : Disposable
     {
+        public int AbilityIndex { get; private set; }
         public InstanceZone Zone { get; private set; }
         public EditorAbilityData Data { get; private set; }
         public string Name { get; private set; }
@@ -15,8 +16,9 @@ namespace DeepCore.Game3D.Host.Instance.Abilities
             this.Data = data;
             this.Name = data.Name;
         }
-        internal void Start(InstanceAttributes obj)
+        internal void Start(InstanceAttributes obj ,int index)
         {
+            this.AbilityIndex = index;
             this.OnStart(obj);
         }
         protected virtual void OnStart(InstanceAttributes obj)
