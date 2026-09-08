@@ -39,7 +39,7 @@ namespace DeepMetaGame.Data.Misc
 
             foreach (var var in Map)
             {
-                varMap.Put(var.Key, var.Value);
+                varMap.Put(var.Key, var.Value.Value);
             }
             return varMap;
         }
