@@ -18,54 +18,30 @@ namespace DeepMetaGame.Data
     [Reflectible]
     public abstract class TemplateData : ISerializable, IFuncTemplateData, IPropertiesOwner, IComparable<TemplateData>
     {
+        //--------------------------------------------------------------------------------------------
         public string TemplateID => ID.ToString();
         public string TemplateName { get => Name; set => Name = value; }
         IFuncTableGroup IFuncData.Tables { get => FuncID; set => FuncID = (FuncTableGroup)value; }
         public abstract IPropertiesData PropertiesData { get; }
-
-        [Desc("ID", "0.模板", Editable = false)]
-        public int ID;
-
-        [LocalizationText]
-        [Desc("名字", "0.模板")]
-        public string Name;
-
-        [Desc("图标", "0.模板")]
-        [ResourceID(ResourceType.Image)]
-        public string IconName;
-
-        [Desc("注释", "0.模板")]
-        public string Comment;
-
-        [ColorValue]
-        [Desc(Category = "0.模板", Desc = "Color(ARGB)", Editable = true)]
-        public int ColorARGB = 0;//ColorValueAttribute.COLOR_GREEN;
-
-        [Desc(Editable = false)]
-        public FuncTableGroup FuncID;
-
-        [Desc(Category = "9.扩展", Desc = "用户自定义标志")]
-        public string UserTag;
-
-        [Desc(Category = "9.扩展", Desc = "自定义字段")]
-        public string[] Attributes;
-
-        [Desc(Editable = false)]
-        public string EditorPath;
-
-        sealed public override string ToString()
-        {
-            return ID + "-" + Name;
-        }
-
+        //--------------------------------------------------------------------------------------------
+        [Desc("ID", "0.模板", Editable = false)] public int ID;
+        [Desc("名字", "0.模板"), LocalizationText] public string Name;
+        [Desc("图标", "0.模板"), ResourceID(ResourceType.Image)] public string IconName;
+        [Desc("图片", "0.模板"), ResourceID(ResourceType.Image)] public string Image;
+        [Desc("注释", "0.模板")] public string Comment;
+        [Desc(Category = "0.模板", Desc = "Color(ARGB)", Editable = true), ColorValue] public int ColorARGB = 0;//ColorValueAttribute.COLOR_GREEN;
+        [Desc(Editable = false)] public FuncTableGroup FuncID;
+        [Desc(Category = "9.扩展", Desc = "用户自定义标志")] public string UserTag;
+        [Desc(Category = "9.扩展", Desc = "自定义字段")] public string[] Attributes;
+        [Desc(Editable = false)] public string EditorPath;
+        //--------------------------------------------------------------------------------------------
+        sealed public override string ToString() => ID + "-" + Name;
         public int CompareTo(TemplateData other) => this.ID.CompareTo(other.ID);
-
-        public static implicit operator bool(in TemplateData value)
-        {
-            return value != null;
-        }
-
+        public static implicit operator bool(in TemplateData value) => value != null;
+        //--------------------------------------------------------------------------------------------
+        // 不参与序列化的属性
         [Desc(Desc = "是否源生模板", Editable = false)] public bool IsOriginal { get; set; } = false;
+        //--------------------------------------------------------------------------------------------
     }
 
     public abstract class CustomEventTemplateData : TemplateData, IEventsTemplateData
