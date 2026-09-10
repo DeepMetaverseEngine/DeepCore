@@ -10,6 +10,7 @@ using DeepMetaGame.Data.Misc;
 using DeepMetaGame.Data.Template;
 using DeepMetaGame.Data.ZoneEditor;
 using DeepMetaGame.Data.ZoneGeometry;
+using DeepMetaGame.Data.ZoneGeometry.Terrain;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -221,6 +222,12 @@ namespace DeepMetaGame.Data
         //         #endregion
         public virtual ITerrainWorld CreateVoxelWorld(object owner, EditorTemplates data_root, string voxelFileName, SceneData data, ZoneInfo zoneInfo)
         {
+            if (string.IsNullOrEmpty(voxelFileName)) {
+                if (data != null)
+                {
+                    return new SceneTerrainWorld(data, data_root.Templates);
+                }
+            }
             var path = data_root.EditorRoot + voxelFileName;
             return TerrainFactory.Instance.GetOrCreateVoxelWorld(path, data);
         }
