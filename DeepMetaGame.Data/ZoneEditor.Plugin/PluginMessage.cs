@@ -103,7 +103,9 @@ namespace DeepMetaGame.Data.ZoneEditor
             public int SceneID;
             public string ProjectName;
             public string FileName;
-            public string ResourceDir;
+            public string ImageName;
+            public int ImagePixelPerfect;
+            public string EditorRootDir;
             public string ResourceProperty;
             public string VoxelFileName;
             public float ResourceStartX;

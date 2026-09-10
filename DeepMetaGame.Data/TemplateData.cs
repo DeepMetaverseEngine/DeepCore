@@ -28,6 +28,7 @@ namespace DeepMetaGame.Data
         [Desc("名字", "0.模板"), LocalizationText] public string Name;
         [Desc("图标", "0.模板"), ResourceID(ResourceType.Image)] public string IconName;
         [Desc("图片", "0.模板"), ResourceID(ResourceType.Image)] public string Image;
+        [Desc("图片1单位像素", "0.模板")] public int ImagePixelPerfect = 100;
         [Desc("注释", "0.模板")] public string Comment;
         [Desc(Category = "0.模板", Desc = "Color(ARGB)", Editable = true), ColorValue] public int ColorARGB = 0;//ColorValueAttribute.COLOR_GREEN;
         [Desc(Editable = false)] public FuncTableGroup FuncID;
