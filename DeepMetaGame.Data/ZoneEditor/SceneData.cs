@@ -587,6 +587,8 @@ namespace DeepMetaGame.Data.ZoneEditor
             output.PutS32(base.ID);
             output.PutUTF(base.Name);
             output.PutUTF(base.IconName);
+            output.PutUTF(base.Image);
+            output.PutS32(base.ImagePixelPerfect);
             output.PutUTF(base.Comment);
             output.WriteFuncID(base.FuncID);
             output.PutUTF(base.UserTag);
@@ -637,6 +639,8 @@ namespace DeepMetaGame.Data.ZoneEditor
             base.ID = input.GetS32();
             base.Name = input.GetUTF();
             base.IconName = input.GetUTF();
+            base.Image = input.GetUTF();
+            base.ImagePixelPerfect = input.GetS32();
             base.Comment = input.GetUTF();
             base.FuncID = input.ReadFuncID();
             base.UserTag = input.GetUTF();
