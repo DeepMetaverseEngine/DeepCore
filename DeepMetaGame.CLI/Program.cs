@@ -86,15 +86,16 @@ Options:
         {
             Console.WriteLine($"Current Project Name: {projName}");
             Console.WriteLine("### Clone DeepMeta Templates ###");
+            var tempProj = new DirectoryInfo(Path.Combine(root.FullName, "TemplateProject"));
             //git archive --remote=git@github.com:user/repo.git HEAD --format=zip --output=remote_project.zip
-            var code = Exec.Run("git", $"clone {TEMPLATE_GIT_URL} \"{root.FullName}\"", root.FullName);
+            var code = Exec.Run("git", $"clone {TEMPLATE_GIT_URL} \"{tempProj.FullName}\"", root.FullName);
             //var code = Exec.Run("git", $"archive --remote={TEMPLATE_GIT_URL} HEAD --format=zip --output=_temp_.zip", root.FullName);
             if (code == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("### Clone DeepMeta Templates Complete ! ###");
                 Console.ResetColor();
-                var submodules = Properties.ParseLines(File.ReadAllLines(Path.Combine(root.FullName, ".gitmodules")));
+                var submodules = Properties.ParseLines(File.ReadAllLines(Path.Combine(tempProj.FullName, ".gitmodules")));
                 foreach (var e in submodules)
                 {
                     if (e.Value.EndsWith("DeepCore.git"))
@@ -106,7 +107,15 @@ Options:
                 }
             }
             Thread.Sleep(1000);
-            Exec.Cmd("rd", $" /s /q \"{GitPath}\"");
+            tempProj.Refresh();
+            if (tempProj.Exists)
+            {
+                CFiles.WriteAllText($"{root.FullName}\\exclude.txt", "\\.git\\");
+                Exec.Cmd("xcopy", $"/Y/E/EXCLUDE:{root.FullName}\\exclude.txt \"{tempProj.FullName}\"\\* {root.FullName}", root.FullName);
+                //Exec.Cmd("move", $"/Y \"{tempProj.FullName}\" {root.FullName}", root.FullName);
+                Thread.Sleep(1000);
+                Exec.Cmd("rd", $" /s /q \"{tempProj}\"");
+            }
             Exec.Cmd("del", $" /s /q \"{Path.Combine(root.FullName, ".gitmodules")}\"");
             Exec.Run("git", "init");
             return rename_proj(pargs, root, projName);
